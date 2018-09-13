@@ -5,8 +5,6 @@ from queue import Queue
 from subprocess import Popen, PIPE, STDOUT
 from distutils.dir_util import copy_tree
 
-##########    MAIN PROGRAM    ##########
-
 #WRITES READS SERVER FUNCTIONS
 def Server_Read(r_q,w_q,server):
     global message
