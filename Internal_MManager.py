@@ -122,7 +122,7 @@ thread_write.start()
 #CONTROL CICLE
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 5 MIN
-    time.sleep(30)
+    time.sleep(300)
     main_Queue.put(1)
     time.sleep(1)
     main_Queue.get()
@@ -153,5 +153,3 @@ while True:
             break
 
 os.system('systemctl poweroff')
-
-
