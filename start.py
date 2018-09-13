@@ -1,8 +1,6 @@
-import sys
+import os
 import time
 import threading
-from threading import Thread
-from threading import Timer
 from queue import Queue
 from subprocess import Popen, PIPE, STDOUT
 from distutils.dir_util import copy_tree
@@ -18,14 +16,14 @@ def Server_Read(r_q,w_q,server):
 
         #Prints Without Conditions
         if output and flag is not True:
-            print(output.decode("utf-8"))
+            print(output.decode("utf-8")[0:-1])
             server.stdout.flush()
 
         #Prints with a specific Condition
         elif output and flag is True:
             r_q.get()
             message = output
-            print(output.decode("utf-8"))
+            print(output.decode("utf-8")[0:-1])
             server.stdout.flush()
             w_q.put(1)
 
@@ -137,7 +135,6 @@ while True:
         for x in range(0,2):
             if a_p == 0:
                 time.sleep(30)
-                print("Vai 1")
                 main_Queue.put(1)
                 time.sleep(1)
                 main_Queue.get()
@@ -153,6 +150,10 @@ while True:
             thread_write.join()
             #MAKES BACKUP
             copy_tree(origin,destination)
+            print("The Computer will Shut down")
+            time.sleep(3)
             break
+
+os.system('systemctl poweroff')
 
 
