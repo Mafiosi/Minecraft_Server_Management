@@ -12,7 +12,10 @@ def main():
 
     u = garden.pick(1)
     p = garden.pick(2)
+
     d = garden.pick(3)
+    m = garden.pick(4)
+    po = 9
 
     command = 'systemctl poweroff'
 
