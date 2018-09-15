@@ -88,7 +88,10 @@ def Server_Write(m_q,r_q,w_q,server):
             break
 
 
-##########    MAIN PROGRAM    ##########
+##########################################
+##########      VARIABLES       ##########
+##########################################
+
 
 #INITITALIZATION OF SERVER
 server = Popen("cd /opt/minecraft/server_1; java -Xms1024M -Xmx6144M -jar /opt/minecraft/server_1/forge-1.12.2-14.23.4.2759-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
@@ -119,7 +122,9 @@ thread_write = threading.Thread(name='Write_Server',target=Server_Write,args=(ma
 thread_read.start()
 thread_write.start()
 
-#CONTROL CICLE
+##########################################
+##########     MAIN PROGRAM     ##########
+##########################################
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 5 MIN
     time.sleep(300)
