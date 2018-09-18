@@ -52,14 +52,15 @@ def main():
         #CHECKS IF PC IS ALREADY ON
         if verify:
             print("PC is turned ON")
-            print("Initializing Files Transfer...\n")
+            print("Initializing Files Transfer...\nIt may take a little bit...")
 
+            #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/home/mafi/Desktop/minecraft/','%USERPROFILE/Desktop/aqui')
-                print("done")
+                server.get('/home/mafi/Desktop/minecraft/PACKS.zip',None,True)
+                print("Files Were Transfered Successfully!")
                 break
             except:
-                print("Minecraft Server Failed to Initialize")
+                print("Couldn't Transfer Files TO PC, Check Connection.")
                 break
 
         #IF PC IS TURNED OFF
@@ -78,23 +79,21 @@ def main():
                 send_magic_packet(m, ip_address=i, port=po)
             except:
                 print("PC cannot be turned ON")
-                c_q.put(4)
                 break
 
             print("Waiting for PC to turn ON. ETA: ~60 sec")
             time.sleep(zzz)
 
             #INITIALIZING MINECRAFT SERVER BY RUNNING SERVER MANAGER
-            print("Initializing Minecraft Server")
+            print("Initializing Files Transfer...\nIt may take a little bit...")
 
+            #TRY TO TRANSFER FILES TO PC
             try:
-                c_q.put(1)
-                with server.cd('/home/mafi/scripts/'):
-                    server.run(command)
+                server.get('/home/mafi/Desktop/minecraft/PACKS.zip', None, True)
+                print("Files Were Transfered Successfully!")
                 break
             except:
-                print("Minecraft Server Failed to Initialize")
-                c_q.put(5)
+                print("Couldn't Transfer Files TO PC, Check Connection.")
                 break
 
 if __name__ == '__main__':
