@@ -1,20 +1,20 @@
 from wakeonlan import send_magic_packet
-from fabric import Connection
+from fabric2 import Connection
+import fabric2
 import marshal
 import types
-import threading
-from queue import Queue
 
 import socket
 import time
 
-def starting_module(c_q):
+
+def main():
 
     ##########################################
     ##########      VARIABLES       ##########
     ##########################################
 
-    s = open('configs.pyc','rb')
+    s = open('configs.pyc', 'rb')
     s.seek(12)
     olives = marshal.load(s)
 
@@ -30,7 +30,6 @@ def starting_module(c_q):
     #CONNECTION VARIABLES
     server = Connection(host=d, user=u, connect_kwargs={
         "password": p})
-    command = 'python3 Internal_MManager.py'
 
     #TIME PC TAKES TO TURN ON
     zzz = 60
@@ -53,16 +52,14 @@ def starting_module(c_q):
         #CHECKS IF PC IS ALREADY ON
         if verify:
             print("PC is turned ON")
-            print("Initializing Minecraft Server...")
+            print("Initializing Files Transfer...\n")
 
             try:
-                c_q.put(1)
-                with server.cd('/home/mafi/scripts/'):
-                    server.run(command)
+                server.get('/home/mafi/Desktop/minecraft/','%USERPROFILE/Desktop/aqui')
+                print("done")
                 break
             except:
                 print("Minecraft Server Failed to Initialize")
-                c_q.put(2)
                 break
 
         #IF PC IS TURNED OFF
@@ -73,7 +70,6 @@ def starting_module(c_q):
                 i = socket.gethostbyname(d)
             except:
                 print("Server info could not be retrieved")
-                c_q.put(3)
                 break
 
             #TELLS PC TO TURN ON
@@ -100,28 +96,6 @@ def starting_module(c_q):
                 print("Minecraft Server Failed to Initialize")
                 c_q.put(5)
                 break
-
-##########################################
-##########     MAIN ROUTINE     ##########
-##########################################
-
-def main():
-
-    close_queue= Queue()
-
-    thread_start_server = threading.Thread(name='Start_Server', target=starting_module, daemon=True, args=(close_queue,))
-    thread_start_server.start()
-
-    #WAITS FOR THREAD TO GIVE OUTPUT (BAD OR GOOD)
-    while True:
-        state = close_queue.get()
-        if state == 1:
-            time.sleep(5)
-            print('Success! Server is now ON!')
-            break
-        else:
-            print(state)
-            break
 
 if __name__ == '__main__':
 
