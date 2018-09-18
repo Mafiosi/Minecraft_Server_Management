@@ -94,7 +94,7 @@ def Server_Write(m_q,r_q,w_q,server):
 
 
 #INITITALIZATION OF SERVER
-server = Popen("cd /opt/minecraft/server_1; java -Xms1024M -Xmx6144M -jar /opt/minecraft/server_1/forge-1.12.2-14.23.4.2759-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
+server = Popen("cd /opt/minecraft/server; java -Xms1024M -Xmx6144M -jar /opt/minecraft/server/forge-1.12.2-14.23.4.2760-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 
 #INDICATES THAT'S SOMETHING IS GONNA BE WRITTEN
 global flag
