@@ -117,7 +117,9 @@ def main():
         state = close_queue.get()
         if state == 1:
             time.sleep(5)
-            print('Success! Server is now ON!')
+            print('Success! Server is now Turning on...')
+            time.sleep(60)
+            print("Server Should be ON!")
             break
         else:
             print(state)
