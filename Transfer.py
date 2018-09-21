@@ -56,7 +56,7 @@ def main():
 
             #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/home/mafi/Desktop/minecraft/PACKS.zip',None,True)
+                server.get('/usr/minecraft/PACKS.zip',None,True)
                 print("Files Were Transfered Successfully!")
                 break
             except:
@@ -89,7 +89,7 @@ def main():
 
             #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/home/mafi/Desktop/minecraft/PACKS.zip', None, True)
+                server.get('/usr/minecraft/PACKS.zip', None, True)
                 print("Files Were Transfered Successfully!")
                 break
             except:

@@ -30,7 +30,7 @@ def starting_module(c_q):
     #CONNECTION VARIABLES
     server = Connection(host=d, user=u, connect_kwargs={
         "password": p})
-    command = 'python3 Internal_MManager.py'
+    command = 'python3 Internal_MManager.py 1'
 
     #TIME PC TAKES TO TURN ON
     zzz = 60
@@ -57,7 +57,7 @@ def starting_module(c_q):
 
             try:
                 c_q.put(1)
-                with server.cd('/home/mafi/scripts/'):
+                with server.cd('/usr/minecraft/'):
                     server.run(command)
                 break
             except:
@@ -93,7 +93,7 @@ def starting_module(c_q):
 
             try:
                 c_q.put(1)
-                with server.cd('/home/mafi/scripts/'):
+                with server.cd('/usr/minecraft/'):
                     server.run(command)
                 break
             except:

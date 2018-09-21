@@ -94,7 +94,7 @@ def Server_Write(m_q,r_q,w_q,server):
 
 
 #INITITALIZATION OF SERVER
-server = Popen("cd /opt/minecraft/server; java -Xms1024M -Xmx6144M -jar /opt/minecraft/server/forge-1.12.2-14.23.4.2760-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
+server = Popen("cd /usr/minecraft/server; java -Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /opt/minecraft/server/forge-1.12.2-14.23.4.2760-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 
 #INDICATES THAT'S SOMETHING IS GONNA BE WRITTEN
 global flag
@@ -113,8 +113,8 @@ global shut
 shut = False
 
 #BACKUP DIRECTORY
-origin = "/opt/minecraft/server_1/world"
-destination = "/opt/minecraft/Backup/Server_World"
+origin = "/usr/minecraft/server/world"
+destination = "/usr/minecraft/Backup/Server_World"
 
 #tHREAD INITIALIZATION
 thread_read = threading.Thread(name='Read_Server',target=Server_Read,args=(read_Queue,write_Queue,server,))
@@ -127,7 +127,7 @@ thread_write.start()
 ##########################################
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 5 MIN
-    time.sleep(300)
+    time.sleep(70)
     main_Queue.put(1)
     time.sleep(1)
     main_Queue.get()
