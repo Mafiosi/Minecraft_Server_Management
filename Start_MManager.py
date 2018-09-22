@@ -71,13 +71,9 @@ def starting_module(c_q):
                     print("Server is already running")
                     break
             except:
-                print("Error Connecting to PC, try again...")
-                c_q.put(2)
-                break
+                print("Initializing Minecraft Server...")
 
             # TURN SERVER ON
-            print("Initializing Minecraft Server...")
-
             try:
                 with server.cd('/usr/minecraft/'):
                     server.run(command)
