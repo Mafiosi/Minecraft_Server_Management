@@ -1,6 +1,5 @@
 from wakeonlan import send_magic_packet
 from fabric2 import Connection
-import fabric2
 import marshal
 import types
 

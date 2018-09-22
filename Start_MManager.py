@@ -14,7 +14,14 @@ def starting_module(c_q):
     ##########      VARIABLES       ##########
     ##########################################
 
-    s = open('configs.pyc','rb')
+    print("Checking that configs.pyc is in the same folder....")
+    try:
+        s = open('configs.pyc','rb')
+    except:
+        print("It is not...")
+        c_q.put(2)
+        time.sleep(3)
+
     s.seek(12)
     olives = marshal.load(s)
 
@@ -30,7 +37,7 @@ def starting_module(c_q):
     #CONNECTION VARIABLES
     server = Connection(host=d, user=u, connect_kwargs={
         "password": p})
-    command = 'python3 Internal_MManager.py 1'
+    command = 'nohup python3 Internal_MManager.py 1'
 
     #TIME PC TAKES TO TURN ON
     zzz = 60
@@ -47,12 +54,26 @@ def starting_module(c_q):
             server.open()
             verify = server.is_connected
         except:
-            print("PC is turned off\n Turning it ON...")
+            print("PC is turned off\nTurning it ON...")
 
         verify = server.is_connected
+
         #CHECKS IF PC IS ALREADY ON
         if verify:
             print("PC is turned ON")
+
+            #CHECK IF SERVER IS ALREADY ON
+            try:
+                a = server.run('pgrep -a java')
+                if a != None:
+                    print("Server is already running")
+                    break
+            except:
+                print("Error Connecting to PC, try again...")
+                c_q.put(2)
+                break
+
+            # TURN SERVER ON
             print("Initializing Minecraft Server...")
 
             try:
@@ -117,12 +138,12 @@ def main():
         state = close_queue.get()
         if state == 1:
             time.sleep(5)
-            print('Success! Server is now Turning on...')
-            time.sleep(60)
-            print("Server Should be ON!")
+            print('Success! Server is now Turning on... (ETA: ~60s')
+            time.sleep(5)
             break
         else:
             print(state)
+            time.sleep(3)
             break
 
 if __name__ == '__main__':

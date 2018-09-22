@@ -122,6 +122,16 @@ thread_write = threading.Thread(name='Write_Server',target=Server_Write,args=(ma
 thread_read.start()
 thread_write.start()
 
+# DECRYPTING INFO
+s = open('configs.pyc', 'rb')
+s.seek(12)
+olives = marshal.load(s)
+
+garden = types.ModuleType("Garden")
+exec(olives, garden.__dict__)
+
+p = garden.pick(2)
+
 ##########################################
 ##########     MAIN PROGRAM     ##########
 ##########################################
@@ -157,4 +167,4 @@ while True:
             time.sleep(3)
             break
 
-os.system('systemctl poweroff')
+os.system('echo "' + p + '" | sudo -S shutdown -h now')
