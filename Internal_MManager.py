@@ -1,6 +1,8 @@
 import os
 import time
 import threading
+import marshal
+import types
 from queue import Queue
 from subprocess import Popen, PIPE, STDOUT
 from distutils.dir_util import copy_tree
