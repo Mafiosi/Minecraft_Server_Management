@@ -42,7 +42,7 @@ def main():
 
         #TRY CONNECTING TO PC
         try:
-            server.run('ls', hide=True)
+            server.run('ls',hide=True)
         except:
             print("PC is turned off\n Turning it ON...")
 
@@ -50,11 +50,12 @@ def main():
         #CHECKS IF PC IS ALREADY ON
         if verify:
             print("PC is turned ON")
-            print("Initializing Files Transfer...\nIt may take a little bit...")
+            print("Initializing Files Transfer...")
+            print("Folder Size: 560 Mb. ETA: 3-5 min")
 
             #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/usr/minecraft/PACK.zip',None,True)
+                server.get('/usr/minecraft/ALL.zip',None,True)
                 print("Files Were Transfered Successfully!")
                 break
             except:
@@ -83,11 +84,12 @@ def main():
             time.sleep(zzz)
 
             #INITIALIZING MINECRAFT SERVER BY RUNNING SERVER MANAGER
-            print("Initializing Files Transfer...\nIt may take a little bit...")
+            print("Initializing Files Transfer...")
+            print("Folder Size: 560 Mb. ETA: 3-5 min")
 
             #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/usr/minecraft/PACK.zip', None, True)
+                server.get('/usr/minecraft/ALL.zip', None, True)
                 print("Files Were Transfered Successfully!")
                 break
             except:
