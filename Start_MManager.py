@@ -17,12 +17,13 @@ def starting_module(c_q):
     print("Checking that configs.pyc is in the same folder....")
     try:
         s = open('configs.pyc','rb')
-        print("It is")
+        print("It is... nice.")
     except:
         print("It is not... Move it to the same folder.")
         c_q.put(2)
         time.sleep(3)
 
+    s = open('configs.pyc', 'rb')
     s.seek(12)
     olives = marshal.load(s)
 
@@ -38,7 +39,7 @@ def starting_module(c_q):
     #CONNECTION VARIABLES
     server = Connection(host=d, user=u, connect_kwargs={
         "password": p})
-    command = 'nohup python3 Internal_MManager.py 1'
+    command = 'nohup screen -S mine -d -m python3 Internal_MManager.py &'
 
     #TIME PC TAKES TO TURN ON
     zzz = 60
@@ -76,8 +77,8 @@ def starting_module(c_q):
             # TURN SERVER ON
             try:
                 c_q.put(1)
-                print('Success! Server is now Turning on... (ETA: ~60s')
-                with server.cd('/usr/minecraft/'), hide('output'):
+                print('Success! Server is now Turning on... (ETA: ~60s)')
+                with server.cd('/usr/minecraft/'):
                     server.run(command)
                 break
             except:
@@ -112,7 +113,7 @@ def starting_module(c_q):
             print("Initializing Minecraft Server")
 
             try:
-                print('Success! Server is now Turning on... (ETA: ~60s')
+                print('Success! Server is now Turning on... (ETA: ~60s)')
                 c_q.put(1)
                 with server.cd('/usr/minecraft/'):
                     server.run(command)
@@ -137,7 +138,7 @@ def main():
     while True:
         state = close_queue.get()
         if state == 1:
-            time.sleep(5)
+            time.sleep(20)
             break
         else:
             print(state)

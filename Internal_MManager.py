@@ -51,6 +51,7 @@ def Server_Write(m_q,r_q,w_q,server):
             #FLAG INDICATES READ TO STOP FOR NO BUFFER INTERFERENCE
             flag = True
             time.sleep(1)
+            server.stdout.flush()
             #WRITES MESSAGE
             server.stdin.write(bytes("list" + "\r", "ascii"))
             server.stdin.flush()
