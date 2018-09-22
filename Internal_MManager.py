@@ -96,7 +96,7 @@ def Server_Write(m_q,r_q,w_q,server):
 
 
 #INITITALIZATION OF SERVER
-server = Popen("cd /usr/minecraft/server; java -Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /opt/minecraft/server/forge-1.12.2-14.23.4.2760-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
+server = Popen("cd /usr/minecraft/server; java -Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /usr/minecraft/server/forge-1.12.2-14.23.4.2760-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 
 #INDICATES THAT'S SOMETHING IS GONNA BE WRITTEN
 global flag

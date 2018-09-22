@@ -36,7 +36,7 @@ def main():
     ##########################################
 
     while True:
-        print("Checking if PC is already ON")
+        print("Checking if PC is ON...")
 
         #TRY CONNECTING TO PC
         try:
@@ -45,7 +45,7 @@ def main():
 
         # SERVER IS OFF
         except:
-            print("PC is turned off\nThe Server is Off...")
+            print("PC is turned Off\nSo... The Server is Off...")
             break
 
         verify = server.is_connected
@@ -56,20 +56,19 @@ def main():
 
             # CHECK IF SERVER IS ALREADY ON
             try:
-                a = server.run('pgrep -a java')
+                a = server.run('pgrep -f minecraft')
                 if a != None:
                     print("Server is already running")
+                    time.sleep(3)
                     break
 
-                # SERVER IS OFF
-                else:
-                    print("Server is Off\nTurn it on with Start_MManager!")
-                    time.sleep(5)
-                    break
             except:
-                print("Error Connecting to PC, try again...")
-                c_q.put(2)
+                print("Server is Off\nTurn it ON with Start_MManager!")
+                time.sleep(3)
                 break
+
+            print("Error Connecting to PC, try again...")
+            break
 
 if __name__ == '__main__':
 

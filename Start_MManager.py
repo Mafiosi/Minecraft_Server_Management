@@ -17,8 +17,9 @@ def starting_module(c_q):
     print("Checking that configs.pyc is in the same folder....")
     try:
         s = open('configs.pyc','rb')
+        print("It is")
     except:
-        print("It is not...")
+        print("It is not... Move it to the same folder.")
         c_q.put(2)
         time.sleep(3)
 
@@ -47,14 +48,14 @@ def starting_module(c_q):
     ##########################################
 
     while True:
-        print("Checking if PC is already ON")
+        print("Checking if PC is already ON...")
 
         #TRY CONNECTING TO PC
         try:
             server.open()
             verify = server.is_connected
         except:
-            print("PC is turned off\nTurning it ON...")
+            print("PC is turned Off\nTurning it ON...")
 
         verify = server.is_connected
 
@@ -64,8 +65,9 @@ def starting_module(c_q):
 
             #CHECK IF SERVER IS ALREADY ON
             try:
-                a = server.run('pgrep -a java')
+                a = server.run('pgrep -f minecraft')
                 if a != None:
+                    c_q.put(1)
                     print("Server is already running")
                     break
             except:
@@ -77,9 +79,10 @@ def starting_module(c_q):
             print("Initializing Minecraft Server...")
 
             try:
-                c_q.put(1)
                 with server.cd('/usr/minecraft/'):
                     server.run(command)
+                print('Success! Server is now Turning on... (ETA: ~60s')
+                c_q.put(1)
                 break
             except:
                 print("Minecraft Server Failed to Initialize")
@@ -113,9 +116,10 @@ def starting_module(c_q):
             print("Initializing Minecraft Server")
 
             try:
-                c_q.put(1)
                 with server.cd('/usr/minecraft/'):
                     server.run(command)
+                print('Success! Server is now Turning on... (ETA: ~60s')
+                c_q.put(1)
                 break
             except:
                 print("Minecraft Server Failed to Initialize")
@@ -137,8 +141,6 @@ def main():
     while True:
         state = close_queue.get()
         if state == 1:
-            time.sleep(5)
-            print('Success! Server is now Turning on... (ETA: ~60s')
             time.sleep(5)
             break
         else:
