@@ -140,7 +140,7 @@ p = garden.pick(2)
 ##########################################
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 5 MIN
-    time.sleep(70)
+    time.sleep(300)
     main_Queue.put(1)
     time.sleep(1)
     main_Queue.get()
@@ -150,7 +150,7 @@ while True:
     if a_p == 0:
         for x in range(0,2):
             if a_p == 0:
-                time.sleep(30)
+                time.sleep(60)
                 main_Queue.put(1)
                 time.sleep(1)
                 main_Queue.get()

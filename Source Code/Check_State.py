@@ -40,12 +40,11 @@ def main():
 
         #TRY CONNECTING TO PC
         try:
-            server.open()
-            verify = server.is_connected
+            server.run('ls', hide=True)
 
         # SERVER IS OFF
         except:
-            print("PC is turned Off\nSo... The Server is Off...")
+            print("PC is turned Off\nSo... The Server is Off...\nTurn it ON with Start_MManager!")
             break
 
         verify = server.is_connected

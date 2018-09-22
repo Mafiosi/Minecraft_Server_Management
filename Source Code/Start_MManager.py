@@ -53,8 +53,7 @@ def starting_module(c_q):
 
         #TRY CONNECTING TO PC
         try:
-            server.open()
-            verify = server.is_connected
+            server.run('ls', hide=True)
         except:
             print("PC is turned Off\nTurning it ON...")
 

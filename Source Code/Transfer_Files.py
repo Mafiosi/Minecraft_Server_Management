@@ -42,8 +42,7 @@ def main():
 
         #TRY CONNECTING TO PC
         try:
-            server.open()
-            verify = server.is_connected
+            server.run('ls', hide=True)
         except:
             print("PC is turned off\n Turning it ON...")
 
@@ -55,7 +54,7 @@ def main():
 
             #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/usr/minecraft/PACKS.zip',None,True)
+                server.get('/usr/minecraft/PACK.zip',None,True)
                 print("Files Were Transfered Successfully!")
                 break
             except:
@@ -88,7 +87,7 @@ def main():
 
             #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/usr/minecraft/PACKS.zip', None, True)
+                server.get('/usr/minecraft/PACK.zip', None, True)
                 print("Files Were Transfered Successfully!")
                 break
             except:
