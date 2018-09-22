@@ -75,10 +75,10 @@ def starting_module(c_q):
 
             # TURN SERVER ON
             try:
-                with server.cd('/usr/minecraft/'):
-                    server.run(command)
-                print('Success! Server is now Turning on... (ETA: ~60s')
                 c_q.put(1)
+                print('Success! Server is now Turning on... (ETA: ~60s')
+                with server.cd('/usr/minecraft/'), hide('output'):
+                    server.run(command)
                 break
             except:
                 print("Minecraft Server Failed to Initialize")
@@ -112,10 +112,10 @@ def starting_module(c_q):
             print("Initializing Minecraft Server")
 
             try:
-                with server.cd('/usr/minecraft/'):
-                    server.run(command)
                 print('Success! Server is now Turning on... (ETA: ~60s')
                 c_q.put(1)
+                with server.cd('/usr/minecraft/'):
+                    server.run(command)
                 break
             except:
                 print("Minecraft Server Failed to Initialize")
