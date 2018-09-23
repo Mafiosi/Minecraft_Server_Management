@@ -1,0 +1,213 @@
+########################################
+#######   MINECRAFT SERVER FAQ   #######
+########################################
+
+Minecraft: 1.12.2
+Forge: 14.23.4.2760
+Author: Mafiosi
+
+NOTE: FOR THE EXE's TO RUN YOU NEED configs.pyc IN THE SAME FOLDER
+
+
+FAQ:
+
+Q: I wanna play. How do I start?
+A: Follow ## First Time Use Instructions below.
+
+Q: I have minecraft set-up. Get me the mods dude!
+A: Make sure it's the right version.
+   Run the Transfer_MODS_ONLY.exe for the MODS and follow ## After First Time Use bellow.
+
+Q: Shit dude, this game is not pretty at all, you lied bro...
+A: RUN the Transfer_MODS&TEXTURES.exe and follow ## After First Time Use bellow.
+
+Q: My exe's are not running...
+A: Either READ THE FUCKING NOTE / Check Internet Connection / My PC is broken, ups....
+
+Q: My game is super slow. Tips?
+A: Follow ## Graphical Tips bellow.
+
+
+########################################
+#########    FIRST TIME USE    #########
+########################################
+
+NOTE(Again): FOR THE EXE's TO RUN YOU NEED configs.pyc IN THE SAME FOLDER
+
+YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
+
+1 - Run the Transfer_All.exe and wait for the files to transfer.
+    The Program will exit when Done, DO NOT CLOSE IT BEFORE.
+
+
+2 - Unzip The Zip File All.zip somewhere.
+
+
+3 - WINDOWS USERS MAY SKIP THIS STEP.
+    Go to the folder 1 - Java and install according to your Operating System
+
+
+4 - Go to the folder 2 - Minecraft and install according to your operating System.
+    If you have an account choose OFFICIAL otherwise CRACKED.
+
+
+    FOR CRACKED:
+        - Copy the TLauncher-MCL to your Desktop and run it
+	- Click create and manage accounts on (create at least one account)
+        - Choose Plus sign and click FREE (w/o password)
+        - Choose your name (wisely, dude it's your name)
+        - Click Home Button
+        - Choose version Forge 1.12.2 (IMPORTANT STEP)
+        - Click the three lines, Preferences and add copy the following sentence to JVM Arguments
+
+-Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
+
+        - Click Install and play
+        - Wait for it to launch
+        - Go to options / Resource Packs... / Open Resource Pack Folder
+        - Leave this folder open and quit the game.
+    
+
+    FOR OFICIAL (you need to have bought the game):
+	- Launch MinecraftInstaller
+	- Check all the options and run as normal
+	- Login with your account
+	- Close the App
+
+
+5 - Open folder 3 - FORGE and run forge-1.12.2-14.23.4.2760-installer.jar.
+    Choose install client.
+
+
+6 - FOR OFICIAL USERS ONLY.
+	- Open Minecraft
+	- Go to Launch Options
+	- Select Add New
+	- Give any name and in version choose release 1.12.2-forge1.12.2-14.23.4.2760 on the bottom
+	- Tick JVM Arguments and cope the following setence:
+
+-Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
+
+	- Save and click News on Top
+	- Click the little green arrow on the bottom and select the version you created
+	- Launch the game
+        - Go to options / Resource Packs... / Open Resource Pack Folder
+        - Leave this folder open and quit the game.
+    
+
+7 - Go to the folder 4 - PACKS and copy all the folders inside (mods/resourcepacks/shaderpacks)
+    Go the folder that you left opened before, click on .minecraft on top and copy the folders there
+    (Check if the mods folder is full of **** just to verify you copied anything)
+
+
+8 - Open your launcher.
+    
+    FOR CRACKED:
+	- Select Version 1.12.2-forge1.12.2-14.23.4.2760
+        - Launch the game
+
+
+9 - Click multiplayer / Add Sever
+    
+	SERVER NAME: Anything you want
+	SERVER ADDRESS: 37.189.2.123
+
+
+10 - Go to ## After First Time Use
+
+
+########################################
+######    AFTER FIRST TIME USE    ######
+########################################
+
+
+READ: This game is running on my DESKTOP Pc. For saving power (and money) the server is not always on...
+      Because of that everytime you wanna play you gotta start it. When no more players are playing
+      it will shut down automatically.
+
+IMP:  You need to do these 4 steps everytime you wanna play.
+
+
+############################################################################################
+##										          ##          
+## 1 - To start the server run Start_MManager.exe.				          ##
+##										          ##
+## 2 - Start your game									  ##
+##											  ##
+## 3 - Join multiplayer as before (it may take about 5 min for the whole thing to start). ##
+##											  ##
+## 4 - ENJOY THE SERVER! NO RULES, GO CRAZY!						  ##
+##											  ##
+############################################################################################
+
+
+   5 - It is recommended you follow step 1 of ## Better Performance 
+
+Optional:
+
+
+   6 - If the graphics are good enough, enjoy! If you want better follow the steps in Better Graphics
+
+
+   7 - If the game is running slow follow the tips in Better Performance.
+
+
+########################################
+#######     BETTER GRAPHICS      #######
+########################################
+
+1 - Start the game
+
+2 - Go to Options / Resource Packs / Clik the arrow in Mods_Bor.zip / Done
+    NOTE: It may take a while to do this, don't panic if it seems the game crashed, be patient
+
+3 - Go to Options / Video Settings / Shaders... / Selects MrMeepz Shaders v05 Ultra DoF.zip / Done
+    NOTE: Same note as above.
+
+4 - Go to Options / Video Settings / 
+    - GUI Scale: Select Normal
+    - Brightness: Bright
+    - Max Framerate: 60 fps (depends on your screen but usually 60)
+    - Render Distance: 8 Normal (otherwise the server will start crashing for everybody)
+    - Other... / Fullscreen ON
+
+## MINOR GRAPHIC IMPROVMENTS - Do only if your pc can handle it
+
+5 - Go to Options / Video Settings 
+    - Dynamic Lights: ON
+    - Smooth Lightning Level: 100%
+
+6 - Other Settings try at your own risk. 
+
+########################################
+######    BETTER PERFORMANCE     #######
+########################################
+´
+1 - Go to Nvidia Control Panel (usually on Control Panel or the little icon on the windows bar)
+    Click Manage 3D Settings / Program Settings / Add / Browse
+    - Go to C:/Program Files/ Java / jre1.8.0_181 / bin / javaw
+    - Select High-performance NVIDIA processor
+    - Click Apply
+    - Repeat the same process for C:/Program Files/ Java / jre1.8.0_181 / bin / java
+
+    If you installed Minecraft OFICIAL:
+    - Repeat the same process for C:/Program Files(x86)/Minecraft/runtime/jre-x64/any_number/bin/javaw
+    - Repeat the same process for C:/Program Files(x86)/Minecraft/runtime/jre-x64/any_number/bin/java
+
+NOTE: To check if you're running with Nvidia run the game and press F3. If you see NVIDIA on the left you are, otherwise... Nope.
+
+2 - Consider removing any resource pack or shader pack you added on ## BETTER GRAPHICS
+
+3 - Go to Options / Video Settings / 
+	- Render Distance: Turn Down
+	- Graphics: Fast
+	- Smooth Lightning: OFF
+	- Dynamic Lightning: OFF
+	- VBO's: ON
+
+4 - Go to Options / Performance /
+	- Smooth FPS: ON
+
+5 - Update Graphic Drivers
+
+6 - Get away from higly populated areas

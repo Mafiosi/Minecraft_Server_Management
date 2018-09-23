@@ -141,20 +141,31 @@ p = garden.pick(2)
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 5 MIN
     time.sleep(300)
+    x = 0
     main_Queue.put(1)
     time.sleep(1)
     main_Queue.get()
-    a_p = int(message.decode("utf-8")[71])
+    try:
+        a_p = int(message.decode("utf-8")[71])
+    except:
+        print("Error in data cycle. Waiting for the next one")
+        a_p = 1
 
     #WILL CHECK 2 TIMES IF SERVER IS EMPLTY TIMEOUT - 1 MIN
     if a_p == 0:
-        for x in range(0,2):
+        while x < 2:
             if a_p == 0:
                 time.sleep(60)
                 main_Queue.put(1)
                 time.sleep(1)
                 main_Queue.get()
-                a_p = int(message.decode("utf-8")[71])
+                try:
+                    a_p = int(message.decode("utf-8")[71])
+                    x += 1
+                except:
+                    print("Error in small data cycle. Waiting for the next one")
+                    x = 1
+                    a_p = 0
 
         #IF TWO CHECKS PASS SERVERS SHUTS DOWN
         if a_p == 0:
