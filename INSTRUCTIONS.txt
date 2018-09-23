@@ -151,6 +151,19 @@ Optional:
 
    7 - If the game is running slow follow the tips in Better Performance.
 
+########################################
+########     FILE DESCRIPTION   ########
+########################################
+
+
+Start_MManager          - Initializes Server Remotely
+
+Transfer_ALL            - Transfer the whole First Use Pack
+
+Transfer_MODS&TEXTURE   - Transfer Only the 4 - PACKS (mods/resourcepacks/shaderpacks)
+
+Transfer_MODS_ONLY      - Transfer only mods (mods)
+
 
 ########################################
 #######     BETTER GRAPHICS      #######
