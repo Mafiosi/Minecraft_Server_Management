@@ -51,7 +51,7 @@ def main():
         if verify:
             print("PC is turned ON")
             print("Initializing Files Transfer...")
-            print("Folder Size: 560 Mb. ETA: 3-5 min")
+            print("Folder Size: 154 Mb. ETA: ~3 min")
 
             #TRY TO TRANSFER FILES TO PC
             try:
@@ -85,7 +85,7 @@ def main():
 
             #INITIALIZING MINECRAFT SERVER BY RUNNING SERVER MANAGER
             print("Initializing Files Transfer...")
-            print("Folder Size: 560 Mb. ETA: 3-5 min")
+            print("Folder Size: 154 Mb. ETA: ~3 min")
 
             #TRY TO TRANSFER FILES TO PC
             try:
