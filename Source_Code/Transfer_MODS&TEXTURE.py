@@ -44,7 +44,7 @@ def main():
         try:
             server.run('ls',hide=True)
         except:
-            print("PC is turned off\n Turning it ON...")
+            print("PC is turned off\nTurning it ON...")
 
         verify = server.is_connected
         #CHECKS IF PC IS ALREADY ON

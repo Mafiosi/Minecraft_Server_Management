@@ -21,11 +21,26 @@ def Server_Read(r_q,w_q,server):
 
         #Prints with a specific Condition
         elif output and flag is True:
-            r_q.get()
-            message = server.stdout.readline()
-            print(output.decode("utf-8")[0:-1])
-            server.stdout.flush()
-            w_q.put(1)
+            a = r_q.get()
+            message = output
+
+            #CHECKING ACTIVE PLAYERS
+            if a == 1:
+                while int(message.decode("utf-8")[73]) is not 2:
+                    print(message.decode("utf-8")[0:-1])
+                    server.stdout.flush()
+                    message = server.stdout.readline()
+
+                print(output.decode("utf-8")[0:-1])
+                server.stdout.flush()
+                w_q.put(1)
+                time.sleep(1)
+            #SHUTTING DOWN SERVER
+            if a == 2:
+                print(output.decode("utf-8")[0:-1])
+                server.stdout.flush()
+                w_q.put(1)
+                time.sleep(1)
 
         #EXIT WHEN SERVER TERMINATED
         elif output == b'' and server.poll() is not None:
@@ -72,7 +87,7 @@ def Server_Write(m_q,r_q,w_q,server):
             server.stdin.write(bytes("say The server will shutdown because there are no active players, if there are, too bad, reconnect again. x0x0" + "\r", "ascii"))
             server.stdin.flush()
             #COMMUNICATES WITH READER
-            r_q.put(1)
+            r_q.put(2)
             w_q.get()
             flag = False
             time.sleep(1)
@@ -83,7 +98,7 @@ def Server_Write(m_q,r_q,w_q,server):
             server.stdin.write(bytes("stop" + "\r","ascii"))
             server.stdin.flush()
             # COMMUNICATES WITH READER
-            r_q.put(1)
+            r_q.put(2)
             w_q.get()
             m_q.put(1)
             flag = False
@@ -139,8 +154,8 @@ p = garden.pick(2)
 ##########     MAIN PROGRAM     ##########
 ##########################################
 while True:
-    #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 5 MIN
-    time.sleep(300)
+    #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 7 MIN
+    time.sleep(420)
     x = 0
     main_Queue.put(1)
     time.sleep(1)
@@ -151,11 +166,11 @@ while True:
         print("Error in data cycle. Waiting for the next one")
         a_p = 1
 
-    #WILL CHECK 2 TIMES IF SERVER IS EMPLTY TIMEOUT - 1 MIN
+    #WILL CHECK 2 TIMES IF SERVER IS EMPLTY TIMEOUT - 1.5 MIN
     if a_p == 0:
         while x < 2:
             if a_p == 0:
-                time.sleep(60)
+                time.sleep(90)
                 main_Queue.put(1)
                 time.sleep(1)
                 main_Queue.get()

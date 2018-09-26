@@ -43,8 +43,7 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
 2 - Unzip The Zip File All.zip somewhere.
 
 
-3 - WINDOWS USERS MAY SKIP THIS STEP.
-    Go to the folder 1 - Java and install according to your Operating System
+3 - Go to the folder 1 - Java and install according to your Operating System
 
 
 4 - Go to the folder 2 - Minecraft and install according to your operating System.
