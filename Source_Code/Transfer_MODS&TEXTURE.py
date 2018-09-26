@@ -51,7 +51,7 @@ def main():
         if verify:
             print("PC is turned ON")
             print("Initializing Files Transfer...")
-            print("Folder Size: 154 Mb. ETA: ~3 min")
+            print("Folder Size: 147 Mb. ETA: ~3 min")
 
             #TRY TO TRANSFER FILES TO PC
             try:
