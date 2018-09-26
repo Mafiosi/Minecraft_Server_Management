@@ -60,7 +60,7 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
         - Choose version Forge 1.12.2 (IMPORTANT STEP)
         - Click the three lines, Preferences and add copy the following sentence to JVM Arguments
 
--Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
+-Xmx4G -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
 
         - Click Install and play
         - Wait for it to launch
@@ -86,7 +86,7 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
 	- Give any name and in version choose release 1.12.2-forge1.12.2-14.23.4.2760 on the bottom
 	- Tick JVM Arguments and cope the following setence:
 
--Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
+-Xmx4G -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
 
 	- Save and click News on Top
 	- Click the little green arrow on the bottom and select the version you created
