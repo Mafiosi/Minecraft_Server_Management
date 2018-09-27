@@ -120,6 +120,7 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
 ########################################
 
 
+
 READ: This game is running on my DESKTOP Pc. For saving power (and money) the server is not always on...
       Because of that everytime you wanna play you gotta start it. When no more players are playing
       it will shut down automatically.
@@ -154,6 +155,7 @@ Optional:
 ########     FILE DESCRIPTION   ########
 ########################################
 
+DESCRIPTION OF FOLDER 5 - EXECUTABLES:
 
 Start_MManager          - Initializes Server Remotely
 

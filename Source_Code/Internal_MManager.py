@@ -84,17 +84,21 @@ def Server_Write(m_q,r_q,w_q,server):
             #TELLS PLAYERS IF ACTIVE THE SERVER IS SHUTTING DOWN
             flag = True
             time.sleep(1)
+            server.stdout.flush()
+            # WRITES MESSAGE
             server.stdin.write(bytes("say The server will shutdown because there are no active players, if there are, too bad, reconnect again. x0x0" + "\r", "ascii"))
             server.stdin.flush()
             #COMMUNICATES WITH READER
             r_q.put(2)
             w_q.get()
             flag = False
-            time.sleep(1)
+            time.sleep(3)
 
             #ACTUALLY STOPS SERVER
             flag = True
             time.sleep(1)
+            server.stdout.flush()
+            # WRITES MESSAGE
             server.stdin.write(bytes("stop" + "\r","ascii"))
             server.stdin.flush()
             # COMMUNICATES WITH READER
@@ -103,6 +107,7 @@ def Server_Write(m_q,r_q,w_q,server):
             m_q.put(1)
             flag = False
             time.sleep(1)
+            print("Exiting Writer")
             break
 
 
@@ -184,6 +189,7 @@ while True:
 
         #IF TWO CHECKS PASS SERVERS SHUTS DOWN
         if a_p == 0:
+            print("vou desligar")
             main_Queue.put(2)
             time.sleep(1)
             main_Queue.get()
@@ -191,8 +197,9 @@ while True:
             thread_read.join()
             thread_write.join()
             #MAKES BACKUP
+            print("Making a Backup....")
             copy_tree(origin,destination)
-            print("The Computer will Shut down")
+            print("Backup Done! The Computer will Shut down.")
             time.sleep(3)
             break
 
