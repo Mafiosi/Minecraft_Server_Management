@@ -192,7 +192,7 @@ while True:
         if a_p == 0:
             print("vou desligar")
             main_Queue.put(2)
-            time.sleep(1)
+            time.sleep(5)
             main_Queue.get()
             #WAITS FOR THREADS TO CLOSE
             thread_read.join()
