@@ -21,6 +21,7 @@ def Server_Read(r_q,w_q,server):
 
         #Prints with a specific Condition
         elif output and flag is True:
+            print("READ: ciclo FLAG")
             a = r_q.get()
             message = output
 
@@ -37,6 +38,7 @@ def Server_Read(r_q,w_q,server):
                 time.sleep(1)
             #SHUTTING DOWN SERVER
             if a == 2:
+                print("READ: cicle FLAG SHUTDOWN")
                 print(output.decode("utf-8")[0:-1])
                 server.stdout.flush()
                 w_q.put(1)
@@ -58,7 +60,6 @@ def Server_Write(m_q,r_q,w_q,server):
     while True:
         #WAITS FOR CONTROL TO SEND SOMETHING TO PRINT
         order = m_q.get()
-
         #CONDITION TO CHECK PLAYERS
         if order == 1:
             print("Checking Active Players")
