@@ -2,10 +2,9 @@ from wakeonlan import send_magic_packet
 from fabric2 import Connection
 import marshal
 import types
-
 import socket
 import time
-
+import base64
 
 def main():
 
@@ -13,88 +12,105 @@ def main():
     ##########      VARIABLES       ##########
     ##########################################
 
+    # DECRYPTING INFO
     s = open('configs.pyc', 'rb')
     s.seek(12)
     olives = marshal.load(s)
 
     garden = types.ModuleType("Garden")
-    exec(olives,garden.__dict__)
+    exec(olives, garden.__dict__)
 
-    u = garden.pick(1)
-    p = garden.pick(2)
-    d = garden.pick(3)
-    m = garden.pick(4)
-    po = 9
+    u = base64.decodebytes(bytes(garden.pick(1)))
+    p = base64.decodebytes(bytes(garden.pick(2)))
+    d = base64.decodebytes(bytes(garden.pick(3)))
+    m = base64.decodebytes(bytes(garden.pick(4)))
+    x = 9
+
+    u = u.decode()
+    p = p.decode()
+    d = d.decode()
+    m = m.decode()
 
     #CONNECTION VARIABLES
     server = Connection(host=d, user=u, connect_kwargs={
         "password": p})
 
     #TIME PC TAKES TO TURN ON
-    zzz = 60
+    zzz = 50
+    verify = False
 
     ##########################################
     ##########     MAIN PROGRAM     ##########
     ##########################################
 
     while True:
-        print("Checking if PC is already ON")
+        print('Looking up server info and Checking if PC is ON...')
+        try:
+            i = socket.gethostbyname(d)
+        except:
+            print("Server info could not be retrieved")
+            print("Exiting")
+            time.sleep(5)
+            break
+
+        # TELLS PC TO TURN ON
+        try:
+            send_magic_packet(m, ip_address=i, port=x)
+        except:
+            print("PC cannot be turned ON")
+            print("Exiting")
+            time.sleep(5)
+            break
 
         #TRY CONNECTING TO PC
         try:
-            server.run('ls',hide=True)
+            server.run('ls', hide=True)
+            verify = server.is_connected
         except:
-            print("PC is turned off\nTurning it ON...")
+            print("PC is turned off --> Turning it ON...")
 
-        verify = server.is_connected
         #CHECKS IF PC IS ALREADY ON
-        if verify:
-            print("PC is turned ON")
-            print("Initializing Files Transfer...")
-            print("Folder Size: 60 Mb. ETA: ~2 min")
+        if not verify:
 
-            #TRY TO TRANSFER FILES TO PC
-            try:
-                server.get('/usr/minecraft/MODS_ONLY.zip',None,True)
-                print("Files Were Transfered Successfully!")
-                break
-            except:
-                print("Couldn't Transfer Files TO PC, Check Connection.")
-                break
-
-        #IF PC IS TURNED OFF
-        else:
-
-            print('Looking up server info')
-            try:
-                i = socket.gethostbyname(d)
-            except:
-                print("Server info could not be retrieved")
-                break
-
-            #TELLS PC TO TURN ON
-            print('Waking up PC')
-            try:
-                send_magic_packet(m, ip_address=i, port=po)
-            except:
-                print("PC cannot be turned ON")
-                break
-
+            print("Magic Packets Sent")
             print("Waiting for PC to turn ON. ETA: ~60 sec")
+            print("Program should Work even with Traceback error")
             time.sleep(zzz)
 
-            #INITIALIZING MINECRAFT SERVER BY RUNNING SERVER MANAGER
-            print("Initializing Files Transfer...")
-            print("Folder Size: 61.9 Mb. ETA: ~2 min")
-
-            #TRY TO TRANSFER FILES TO PC
             try:
-                server.get('/usr/minecraft/MODS_ONLY.zip', None, True)
-                print("Files Were Transfered Successfully!")
-                break
+                server.run('ls', hide=True)
+                verify = server.is_connected
+                if verify:
+                    print("PC is turned ON")
+                else:
+                    print("PC cannot be turned ON")
+                    print("Exiting")
+                    time.sleep(5)
+                    break
+
             except:
-                print("Couldn't Transfer Files TO PC, Check Connection.")
+                print("PC cannot be turned ON")
+                print("Exiting")
+                time.sleep(5)
                 break
+
+
+        # IF PC IS TURNED OFF
+        else:
+            print("PC is turned ON")
+
+        #TRY TO TRANSFER FILES TO PC
+        try:
+            print("Initializing Files Transfer...")
+            print("Folder: MODS_ONLY.zip   Size: 72 MB   ETA: 1-3 min")
+            print("DON'T CLOSE THE WINDOW! It will close automatically when done")
+            server.get('/opt/Transfer/DISTRIBUTION/MODS_ONLY.zip', None, True)
+            print("Files Were Transfered Successfully!")
+            break
+        except:
+            print("Couldn't Transfer Files TO PC, Check Connection.")
+            break
+
 
 if __name__ == '__main__':
 

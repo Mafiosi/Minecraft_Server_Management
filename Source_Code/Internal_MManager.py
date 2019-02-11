@@ -6,9 +6,11 @@ import types
 from queue import Queue
 from subprocess import Popen, PIPE, STDOUT
 from distutils.dir_util import copy_tree
+import base64
 
 #WRITES READS SERVER FUNCTIONS
 def Server_Read(r_q,w_q,server):
+
     global message
     while True:
         #GETS SERVER MESSAGE
@@ -100,7 +102,7 @@ def Server_Write(m_q,r_q,w_q,server):
             time.sleep(1)
             server.stdout.flush()
             # WRITES MESSAGE
-            server.stdin.write(bytes("stop" + "\r","ascii"))
+            server.stdin.write(bytes("stop" + "\r", "ascii"))
             server.stdin.flush()
             # COMMUNICATES WITH READER
             r_q.put(2)
@@ -118,7 +120,7 @@ def Server_Write(m_q,r_q,w_q,server):
 
 
 #INITITALIZATION OF SERVER
-server = Popen("cd /usr/minecraft/server; java -Xmx4G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /usr/minecraft/server/forge-1.12.2-14.23.4.2760-universal.jar nogui",shell=True,stdin=PIPE, stdout=PIPE, stderr=STDOUT)
+server = Popen("cd /opt/minecraft/; java -Xms1G -Xmx5G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /opt/minecraft/forge-1.12.2-14.23.5.2811-universal.jar nogui", shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 
 #INDICATES THAT'S SOMETHING IS GONNA BE WRITTEN
 global flag
@@ -137,8 +139,8 @@ global shut
 shut = False
 
 #BACKUP DIRECTORY
-origin = "/usr/minecraft/server/world"
-destination = "/usr/minecraft/Backup/Server_World"
+origin = "/opt/minecraft/world"
+destination = "/opt/Backups/Server_World"
 
 #tHREAD INITIALIZATION
 thread_read = threading.Thread(name='Read_Server',target=Server_Read,args=(read_Queue,write_Queue,server,))
@@ -154,7 +156,8 @@ olives = marshal.load(s)
 garden = types.ModuleType("Garden")
 exec(olives, garden.__dict__)
 
-p = garden.pick(2)
+p = base64.decodebytes(bytes(garden.pick(2)))
+p = p.decode()
 
 ##########################################
 ##########     MAIN PROGRAM     ##########
@@ -190,7 +193,7 @@ while True:
 
         #IF TWO CHECKS PASS SERVERS SHUTS DOWN
         if a_p == 0:
-            print("vou desligar")
+            print("Turning OFF")
             main_Queue.put(2)
             time.sleep(5)
             main_Queue.get()
@@ -199,9 +202,9 @@ while True:
             thread_write.join()
             #MAKES BACKUP
             print("Making a Backup....")
-            copy_tree(origin,destination)
+            copy_tree(origin, destination)
             print("Backup Done! The Computer will Shut down.")
             time.sleep(3)
             break
 
-os.system('echo "' + p + '" | sudo -S shutdown -h now')
+os.system('echo "' + p + '" | shutdown -h now')

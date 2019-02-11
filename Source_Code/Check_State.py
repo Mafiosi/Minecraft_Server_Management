@@ -11,17 +11,24 @@ def main():
     ##########      VARIABLES       ##########
     ##########################################
 
+    # DECRYPTING INFO
     s = open('configs.pyc', 'rb')
     s.seek(12)
     olives = marshal.load(s)
 
     garden = types.ModuleType("Garden")
-    exec(olives,garden.__dict__)
+    exec(olives, garden.__dict__)
 
-    u = garden.pick(1)
-    p = garden.pick(2)
-    d = garden.pick(3)
-    m = garden.pick(4)
+    u = base64.decodebytes(bytes(garden.pick(1)))
+    p = base64.decodebytes(bytes(garden.pick(2)))
+    d = base64.decodebytes(bytes(garden.pick(3)))
+    m = base64.decodebytes(bytes(garden.pick(4)))
+    x = 22
+
+    u = u.decode()
+    p = p.decode()
+    d = d.decode()
+    m = m.decode()
     po = 9
 
     #CONNECTION VARIABLES
