@@ -4,14 +4,13 @@ import threading
 import marshal
 import types
 from queue import Queue
-from subprocess import Popen, PIPE, STDOUT, call
+from subprocess import Popen, PIPE, STDOUT
 from distutils.dir_util import copy_tree
 import base64
 
 #WRITES READS SERVER FUNCTIONS
 def Server_Read(r_q,w_q,server):
 
-    global message
     while True:
         #GETS SERVER MESSAGE
         output = server.stdout.readline()
@@ -23,13 +22,19 @@ def Server_Read(r_q,w_q,server):
 
         #Prints with a specific Condition
         elif output and flag is True:
-            print("STARTING CYCLE READ PLAYERS")
+
+            # READ FUNCTION WILL STAY HERE
+            print("CYCLE READ INTERRUPTED")
+            w_q.put(1)
             a = r_q.get()
-            message = output
+
+
 
             #CHECKING ACTIVE PLAYERS
             if a == 1:
-                while (int(message.decode("utf-8")[73]) + int(message.decode("utf-8")[74])) is not 2:
+                while int(message.decode("utf-8")[73]) is not 2 \
+                        and int(message.decode("utf-8")[74]) is not 0:
+
                     print(message.decode("utf-8")[0:-1])
                     server.stdout.flush()
                     message = server.stdout.readline()
@@ -38,10 +43,10 @@ def Server_Read(r_q,w_q,server):
                 server.stdout.flush()
                 w_q.put(1)
                 time.sleep(1)
-                print("READER BACK TO NORMAL")
+
             #SHUTTING DOWN SERVER
             if a == 2:
-                print("READ ACCEPTED SHUTDOWN")
+                print("READ: cicle FLAG SHUTDOWN")
                 print(output.decode("utf-8")[0:-1])
                 server.stdout.flush()
                 w_q.put(1)
@@ -64,18 +69,36 @@ def Server_Write(m_q,r_q,w_q,server):
         #WAITS FOR CONTROL TO SEND SOMETHING TO PRINT
         order = m_q.get()
 
-        #CONDITION TO CHECK PLAYERS
+        # CONDITION TO CHECK PLAYERS
         if order == 1:
             print("Checking Active Players")
 
-            #FLAG INDICATES READ TO STOP FOR NO BUFFER INTERFERENCE
+            # FLAG INDICATES READ TO STOP FOR NO BUFFER INTERFERENCE
             flag = True
-            time.sleep(1)
             server.stdout.flush()
 
-            #WRITES MESSAGE
+            # DECOY MESSAGE
+            time.sleep(1)
+            while True:
+                server.stdin.write(bytes("list" + "\r", "ascii"))
+                server.stdin.flush()
+                time.sleep(1)
+                if not w_q.empty():
+                    w_q.get()
+                    break
+
+            # WRITES MESSAGE
+            server.stdout.flush()
             server.stdin.write(bytes("list" + "\r", "ascii"))
             server.stdin.flush()
+
+            # GET PLAYERS MESSAGE
+            message = server.stdout.readline()
+            while int(message.decode("utf-8")[73]) is not 2 \
+                    and int(message.decode("utf-8")[74]) is not 0:
+                print(message.decode("utf-8")[0:-1])
+                server.stdout.flush()
+                message = server.stdout.readline()
 
             #COMMUNICATION WITH READER TO CHECK IF SAFE
             r_q.put(1)
@@ -83,7 +106,6 @@ def Server_Write(m_q,r_q,w_q,server):
             m_q.put(1)
             flag = False
             time.sleep(1)
-            print("WRITER BACK TO NORMAL")
 
         #CONDITION TO SHUT DOWN SERVER
         if order == 2:
@@ -136,9 +158,6 @@ main_Queue = Queue()
 read_Queue = Queue()
 write_Queue = Queue()
 
-#MESSAGE BETWEEN READER AND MAIN FUCNTION
-global message
-
 #SHUT DOWN MESSAGE
 global shut
 shut = False
@@ -170,11 +189,16 @@ p = p.decode()
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 7 MIN
     time.sleep(420)
-    print("MAIN START CHECKING")
+
     x = 0
     main_Queue.put(1)
-    time.sleep(1)
+    while 1:
+        if main_Queue.empty():
+            break
+        time.sleep(0.4)
+
     main_Queue.get()
+
     try:
         a_p = int(message.decode("utf-8")[71])
     except:
@@ -184,22 +208,20 @@ while True:
     #WILL CHECK 2 TIMES IF SERVER IS EMPLTY TIMEOUT - 1.5 MIN
     if a_p == 0:
         while x < 2:
-            print("TRY: " + str(x))
-            time.sleep(90)
-            main_Queue.put(1)
-            time.sleep(1)
-            main_Queue.get()
-            try:
-                a_p = int(message.decode("utf-8")[71])
-            except:
-                print("Error in small data cycle. Waiting for the next one")
-                x = 1
-                a_p = 0
-
             if a_p == 0:
-                x += 1
+                time.sleep(90)
+                main_Queue.put(1)
+                time.sleep(1)
+                main_Queue.get()
+                try:
+                    a_p = int(message.decode("utf-8")[71])
+                    x += 1
+                except:
+                    print("Error in small data cycle. Waiting for the next one")
+                    x = 1
+                    a_p = 0
+
             else:
-                print("MAIN BACK TO NORMAL")
                 break
 
         #IF TWO CHECKS PASS SERVERS SHUTS DOWN
@@ -218,5 +240,4 @@ while True:
             time.sleep(3)
             break
 
-print("CYA")
-os.system("shutdown -h now")
+os.system('echo "' + p + '" | shutdown -h now')
