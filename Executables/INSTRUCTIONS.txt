@@ -1,0 +1,316 @@
+########################################
+#######   MINECRAFT SERVER FAQ   #######
+########################################
+
+Minecraft: 1.12.2
+Forge: 14.23.4.2760
+Author: Mafiosi
+
+NOTE: FOR THE EXE's TO RUN YOU NEED configs.pyc IN THE SAME FOLDER
+
+
+
+FAQ:
+
+Q: I wanna play. How do I start?
+
+A: Follow First Time Use Instructions below.
+
+########################################
+
+Q: I have minecraft set-up. Get me the mods dude!
+
+A: Make sure it's the right version.
+   Run the Transfer_MODS_ONLY.exe for the MODS
+   Follow After First Time Use bellow.
+
+########################################
+
+Q: Shit dude, this game is not pretty at all, you lied bro...
+
+A: RUN the Transfer_TEXTURES_ONLY.exe
+   Follow After First Time Use bellow.
+
+########################################
+
+Q: My exe's are not running...
+
+A: Either READ THE NOTE
+   Check Internet Connection
+   My PC is broken, ups....
+   Your PC is broken?
+
+########################################
+
+Q: My game is super slow. Tips?
+
+A: Follow Graphical Tips bellow.
+
+
+########################################
+#########    FIRST TIME USE    #########
+########################################
+
+
+NOTE: FOR THE EXE's TO RUN YOU NEED configs.pyc IN THE SAME FOLDER
+
+
+YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
+
+1 - Run the Transfer_All.exe and wait for the files to transfer.
+    The Program will exit when Done, DO NOT CLOSE IT BEFORE.
+
+
+2 - Unzip All.zip somewhere.
+
+
+3 - Go to the folder 1 - Java and install according to your Operating System
+	
+	FOR LINUX run on cmd:
+		- sudo add-apt-repository ppa:webupd8team/java
+		- sudo apt-get update
+		- sudo apt-get install oracle-java8-installer
+
+	FOR WINDOWS & MAC:
+	    - Execute File
+
+
+4 - Go to the folder 2 - Minecraft and install in the default folder.
+
+    GO FOR OFFICIAL ONLY IF YOU HAVE AN OFFICIAL ACCOUNT
+
+
+########################################
+####    FOR CRACKED USERS ONLY     #####
+
+
+5 - Open Minecraft Launcher:  -->  FOR CRACKED USERS ONLY
+
+    - Wait for Install
+    - In the first Bar Select "Create and Manage Accounts..."
+        - Click the + Sign
+        - Free (w/o password)
+        - Choose your username
+        - Add account
+
+    - Go back to first menu
+        - IMPORTANT Select below option Forge 1.12.2
+
+    - Press Install and Play
+    - When Ready Close the Game
+
+    - Go to Folder 4 - MODS
+    - Copy the folder mods to where you installed the game
+    - Replace the folder inside
+
+    - Go back to the launcher
+    - Click the 3 lines below and Preferences
+    - Set Memory Allocation to 5120
+    - Copy the following line to JVM Arguments
+
+    -Xmx5G -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
+
+    - Click Save
+    - Enter the Game
+
+
+########################################
+####    FOR OFFICIAL USERS ONLY    #####
+
+5 - Open Minecraft Launcher:  -->  FOR OFFICIAL USERS ONLY
+
+    - Wait for Install
+    - Start Minecraft launcher
+    - Login with your account
+
+    - Go to folder 3 - Forge and execute file
+        - Only change location if you did not install
+          minecraft in default folder
+
+    - Close and Launch Minecraft again
+
+    - Go to Launch Options:
+        - Click Advanced Settings, OK (On the Launch Options Menu)
+        - Select forge
+        - Click JVM Arguments
+            - Delete arguments inside
+            - Copy the following Arguments
+
+    -Xmx5G -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M
+
+    - Save
+    - Go to news
+    - On the little green arrow below select Forge Version
+    - Play
+
+    - Close the Game
+    - Go to Folder 4 - MODS
+    - Copy the folder mods to where you installed the game
+    - Replace the folder inside
+    - Enter the Game again and Start
+
+
+########################################
+####         FOR ALL USERS         #####
+
+6 - Click Multiplayer:
+
+    - Add Server
+    - Server Name: Any name you want
+    - Server Address: belezamafiosi.ddns.net
+    - Done
+
+7 - Go the Folder 5 - Executables
+
+    - Extract Start_MManager.exe and configs.pyc
+    - Run Start_MManager.exe
+    - After some minutes the Multyplayer Menu should be green and ready to go
+
+8 - Go to After First Time Use Chapter
+
+IMPORTANT - Everytime you wanna play, execute Start_MManager.exe
+            to start the server
+
+
+########################################
+######    AFTER FIRST TIME USE    ######
+########################################
+
+
+
+READ: This game is running on my DESKTOP Pc. For saving power (and money) the server is not always on...
+      Because of that everytime you wanna play you gotta start it. When no more players are playing
+      it will shut down automatically.
+
+IMP:  You need to do these 4 steps everytime you wanna play.
+
+
+############################################################################################
+##										                                                  ##                                                                                       ##
+## 1 - To start the server run Start_MManager.exe.				                          ##
+##										                                                  ##
+## 2 - Start your game									                                  ##
+##											                                              ##
+## 3 - Join multiplayer as before (it may take about 5 min for the whole thing to start). ##
+##											                                              ##
+## 4 - ENJOY THE SERVER! NO RULES, GO CRAZY!						                      ##
+##											                                              ##
+############################################################################################
+
+
+   OPTIONAL, You can do both, only needs to be done ONCE
+
+
+   5 - If your Pc can handle better GRAPHICS go to chapter Better Graphics
+       Includes:
+
+            - Custom resource packs (looks  better)
+            - Shader Pack           (feels  better)
+            - Ambience Mods         (play  ~better)
+
+
+   6 - If your Pc is lagging try the guide on Better FPS
+
+
+########################################
+########     FILE DESCRIPTION   ########
+########################################
+
+DESCRIPTION OF FOLDER 5 - EXECUTABLES:
+
+Start_MManager          - Initializes Server Remotely
+
+Transfer_ALL            - Transfer the whole First Use Pack
+
+Transfer_TEXTURE_ONLY   - Transfer only Textures only
+
+Transfer_MODS_ONLY      - Transfer only Mods (mods)
+
+
+########################################
+#######     BETTER GRAPHICS      #######
+########################################
+
+1 - Go to folder 5 - EXECUTABLES and run Transfer_TEXTURE_ONY.exe
+    The Program will exit when Done, DO NOT CLOSE IT BEFORE.
+
+2 - Open you Minecraft folder and copy the folder mods/resourcepacks/shaderpacks inside
+
+3 - Launch Game
+
+4 - Go to Options / Resource Packs / Click the arrow in Mods_Bor.zip / Done
+    NOTE: It may take a while to do this, don't panic if it seems the game crashed, be patient
+
+5 - Go to Options / Video Settings / Shaders... /
+
+     - IF YOUR PC IS LIKE SUPER GOOD:  Select MrMeepz Shaders v05 Ultra DOF.zip / Done
+     - OTHERWISE:                      Select MrMeepz Shaders v05 Ultra.zip / Done
+
+6 - Go to Options / Video Settings /
+    - GUI Scale: Select Normal
+    - Brightness: Bright
+    - Max Framerate: unlimited (depends on your screen but usually 60)
+    - Render Distance: 8 Normal (otherwise the server will start crashing for everybody)
+    - Other... / Fullscreen ON
+    - Graphics: Fancy
+
+## MINOR GRAPHIC IMPROVEMENTS - Do only if your pc can handle it
+
+5 - Go to Options / Video Settings 
+    - Dynamic Lights: ON
+    - Smooth Lightning Level: 100%
+
+6 - Other Settings try at your own risk. 
+
+
+########################################
+######    BETTER PERFORMANCE     #######
+########################################
+´
+1 - Go to Nvidia Control Panel (usually on Control Panel or the little icon on the windows bar)
+    Click Manage 3D Settings / Program Settings / Add / Browse
+    - Go to C:/Program Files/ Java / jre1.8.0_181 / bin / javaw
+    - Select High-performance NVIDIA processor
+    - Click Apply
+    - Repeat the same process for C:/Program Files/ Java / jre1.8.0_181 / bin / java
+
+    If you installed Minecraft OFICIAL:
+    - Repeat the same process for C:/Program Files(x86)/Minecraft/runtime/jre-x64/any_number/bin/javaw
+    - Repeat the same process for C:/Program Files(x86)/Minecraft/runtime/jre-x64/any_number/bin/java
+
+NOTE: To check if you're running with Nvidia run the game and press F3. If you see NVIDIA on the left you are, otherwise... Nope.
+
+2 - Nvidea Geforce Experience can help you optimize the Game
+    - Go to games folder
+    - Optimize minecraft
+
+IN MINECRAFT:
+3 - Go to Options / Video Settings / 
+	- Render Distance: Turn Down
+	- Graphics: Fast
+	- Smooth Lightning: OFF
+	- Dynamic Lightning: OFF
+	- VBO's: ON
+
+4 - Go to Options / Video Settings / Performance /
+	- Smooth FPS: ON
+	- Fast Math: ON
+	- Smooth World: ON
+
+5 - Go to Options / Video Settings / Quality /
+	- Mipmap Type: Nearest
+	- Antialising: OFF
+	- Anisotropic FIltering: OFF
+
+6 - Go to options / Mods
+    - Select Better Foliage Mod
+    - Select Extra Leaves
+        - Set Enable to False
+        - click Done
+    - Select Short Grass and Mycelium
+        - Set enable grass to false
+        - click Done
+
+5 - Update Graphic Drivers
+
+6 - Get away from higly populated areas (or machines)
