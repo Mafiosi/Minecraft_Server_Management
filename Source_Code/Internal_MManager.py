@@ -26,13 +26,21 @@ def Server_Read(r_q,w_q,server):
             print("STARTING CYCLE READ PLAYERS")
             a = r_q.get()
             message = output
-
             #CHECKING ACTIVE PLAYERS
             if a == 1:
-                while (int(message.decode("utf-8")[73]) + int(message.decode("utf-8")[74])) is not 2:
-                    print(message.decode("utf-8")[0:-1])
-                    server.stdout.flush()
-                    message = server.stdout.readline()
+                while True:
+                    try:
+                        if int(message.decode("utf-8")[73]) is 2 and int(message.decode("utf-8")[74]) is 0:
+                            break
+                        else:
+                            print(message.decode("utf-8")[0:-1])
+                            server.stdout.flush()
+                            message = server.stdout.readline()
+
+                    except:
+                        print(message.decode("utf-8")[0:-1])
+                        server.stdout.flush()
+                        message = server.stdout.readline()
 
                 print(output.decode("utf-8")[0:-1])
                 server.stdout.flush()
@@ -219,4 +227,4 @@ while True:
             break
 
 print("CYA")
-os.system("shutdown -h now")
+os.system("sudo /sbin/shutdown -h now")
