@@ -1,0 +1,10 @@
+
+###########################################
+## INSTRUCTION FOR SETTING UP THE SERVER ##
+###########################################
+
+##### SERVER
+## Internal Commands
+
+Interaction with session    --->   screen -S mine -rd
+Verify active session       --->   pgrep -f minecraft

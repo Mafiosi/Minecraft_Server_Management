@@ -1,5 +1,0 @@
-For interacting with server:
-    screen -S mine -rd
-
-Veryfing if something is going on:
-    pgrep -f minecraft
