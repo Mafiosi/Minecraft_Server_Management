@@ -17,15 +17,15 @@ def starting_module(c_q):
     print("##         MODDED SERVER - 1.12.2        ##")
     print("##           AUTHOR - MAFIOSI            ##")
     print("###########################################")
-    print("\n \n")
+    print()
     print("[WARNING] DO NOT CLOSE THE PROGRAM WHILE IT'S RUNNING")
     time.sleep(2)
-    print("\n \n")
+    print()
     print("[STATE] Checking file configs.pyc availability....")
     try:
         s = open('configs.pyc', 'rb')
         print("[RESULT] File configs.pyc found")
-        print("\n")
+        print()
     except:
         print("[RESULT] Move file configs.pyc to the same folder as this EXECUTABLE")
         c_q.put(2)
@@ -37,19 +37,19 @@ def starting_module(c_q):
     garden = types.ModuleType("Garden")
     exec(olives,garden.__dict__)
 
-    u = base64.decodebytes(bytes(garden.pick(1)))
-    p = base64.decodebytes(bytes(garden.pick(2)))
-    d = base64.decodebytes(bytes(garden.pick(3)))
-    m = base64.decodebytes(bytes(garden.pick(4)))
+    alpha = base64.decodebytes(bytes(garden.pick(1)))
+    beta = base64.decodebytes(bytes(garden.pick(2)))
+    gamma = base64.decodebytes(bytes(garden.pick(3)))
+    delta = base64.decodebytes(bytes(garden.pick(4)))
     x = 9
 
-    u = u.decode()
-    p = p.decode()
-    d = d.decode()
-    m = m.decode()
+    alpha = alpha.decode()
+    beta = beta.decode()
+    gamma = gamma.decode()
+    delta = delta.decode()
 
     # CONNECTION VARIABLES
-    server = Connection(host=d, user=u, port=22, connect_kwargs={"password": p})
+    server = Connection(host=gamma, user=alpha, port=22, connect_kwargs={"password": beta})
     command = 'nohup screen -S mine -d -m python3 Internal_MManager.py &'
 
     # TIME PC TAKES TO TURN ON
@@ -64,10 +64,10 @@ def starting_module(c_q):
         print('[STATE] Looking up server info...')
         try:
             time.sleep(1)
-            i = socket.gethostbyname(d)
+            i = socket.gethostbyname(gamma)
             time.sleep(1)
             print('[RESULT] Server OK')
-            print('\n')
+            print()
         except (Exception, ConnectionResetError, socket.timeout, paramiko.ssh_exception.SSHException) as err:
             print("[RESULT] Server info could not be retrieved, try again later")
             c_q.put(3)
@@ -77,7 +77,7 @@ def starting_module(c_q):
         # TELLS PC TO TURN ON
         print('[STATE] Checking if Server is ON...')
         try:
-            send_magic_packet(m, ip_address=i, port=x)
+            send_magic_packet(delta, ip_address=i, port=x)
         except (Exception, ConnectionResetError, socket.timeout, paramiko.ssh_exception.SSHException) as err:
             error = err
             print("[RESULT] Server cannot be turned ON, try again later")
@@ -103,7 +103,7 @@ def starting_module(c_q):
                 verify = server.is_connected
                 if verify:
                     print("[RESULT] Server is turned ON")
-                    print('\n')
+                    print()
                 else:
                     print("[RESULT] Server cannot be turned ON, try again later")
                     c_q.put(5)
@@ -117,46 +117,49 @@ def starting_module(c_q):
 
         else:
             print("[RESULT] Server is Turned ON")
-            print('\n')
+            print()
 
         # TRY TO TRANSFER FILES TO PC
         print("[STATE] Initializing File Transfer")
-        print("[SPECIFICATIONS] Folder: ALL_MODDED.zip   Size: 512 MB   ETA: 3-5 min")
+        print("[SPECIFICATIONS] Folder: ALL_MODDED.zip   Size: 428 MB   ETA: 3-5 min")
         print("[CONTENTS]   1 - JAVA\n")
         print("             2 - MINECRAFT 1.12.2\n")
         print("             3 - FORGE\n")
         print("             4 - MODS\n")
         print("             5 - TEXTURES\n")
+        print("             INSTRUCTIONS_MODDED.txt")
+        print()
 
         answer = None
-        i = 3
+        i = 0
         while answer not in ("y", "n"):
-            answer = input("PROCEED?  y/n ")
-            if answer == "y":
+            answer = input(" DO YOU WANT TO PROCEED?  y/n \n ANSWER: ")
+            if answer == "y" or answer == "yes":
                 try:
-                    print("\n")
+                    print()
                     print("[STATE] Transferring Files to this Executable's Folder")
                     print("[WARNING] DO NOT CLOSE THE WINDOW! It will close automatically when done")
-                    server.get('/opt/Transfer/DISTRIBUTION/ALL_MODDED.zip', None, True)
+                    server.get('/opt/Transfer/Modded/Distribution/ALL_MODDED.zip', None, True)
                     print("[RESULT] Files Were Transferred Successfully!")
-                    print("\n")
+                    print()
                     c_q.put(1)
                     break
                 except:
                     print("[RESULT] Couldn't Transfer Files TO PC, Check Internet Connection or try again later")
                     c_q.put(6)
                     break
-            elif answer == "n":
+            elif answer == "n" or answer == "no":
                 print("[RESULT] Exiting Program")
                 c_q.put(1)
                 break
             else:
                 i = i + 1
-                if i == 2:
-                    print("[RESULT] Alright ya douche I'm closing the program")
+                if i == 3:
+                    print()
+                    print("[RESULT] Alright ya douche I'delta closing the program")
                     c_q.put(1)
                     break
-                print("[RESULT] That answer is not y(es) or n(o), care to change?")
+                print("\n[RESULT] That answer is not y(es) or n(o), care to change?")
                 answer = None
 
         return

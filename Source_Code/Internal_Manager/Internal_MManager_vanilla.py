@@ -177,7 +177,7 @@ p = p.decode()
 ##########################################
 while True:
     #WILL ASK TO CHECK IF PLAYER ARE ON THE SERVER TIMEOUT - 7 MIN
-    time.sleep(180)
+    time.sleep(420)
     print("MAIN START CHECKING")
     x = 0
     main_Queue.put(1)

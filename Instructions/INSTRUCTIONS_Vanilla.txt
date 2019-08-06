@@ -1,11 +1,29 @@
+﻿########################################
+#######   MINECRAFT SERVER INFO  #######
 ########################################
-#######   MINECRAFT SERVER FAQ   #######
-########################################
+
 
 Minecraft: 1.14.4 - Vanilla
 Java Version: 8.221 or higher
 Server IP: belezamafiosi.ddns.net
 Author: Mafiosi
+
+
+########################################
+#######        SERVER GOALS      #######
+########################################
+
+
+This server aims to be a Stable Vanilla Minecraft for long time developments.
+
+There will be no changes or further updates to this version (1.14.4).
+
+The Server world is maintained with constant backups for corruption prevention.
+
+
+########################################
+#######   MINECRAFT SERVER FAQ   #######
+########################################
 
 
 NOTE: FOR THE EXE's TO RUN YOU NEED configs.pyc IN THE SAME FOLDER
@@ -35,8 +53,15 @@ A: Run the executable Start_MManager_vanilla.exe
 
 Q: Shit dude, this game is not pretty at all, you lied bro...
 
-A: RUN the Transfer_TEXTURES_ONLY_vanilla.exe
-   Follow *After First Time Use* instruction bellow.
+A: Follow *Better Graphics* below
+
+
+########################################
+
+
+Q: My game is super slow. Tips?
+
+A: Follow *Better Performance* bellow.
 
 
 ########################################
@@ -49,14 +74,6 @@ A: --> Either READ THE NOTE above    OR
    --> Check Internet Connection
    --> My Server is broken, ups....
    --> Your PC is broken?
-
-
-########################################
-
-
-Q: My game is super slow. Tips?
-
-A: Follow *Graphical Tips* bellow.
 
 
 ########################################
@@ -140,7 +157,8 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
 ########################################
 ####         FOR ALL USERS         #####
 
-6   - Go to Multiplayer
+6 - Go to Multiplayer
+
     - Add Server
     - Choose any Server name
     - Server Address: belezamafiosi.ddns.net
@@ -150,7 +168,7 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
 7 - You are ready to Play
 
 
-8 - Go to After First Time Use Chapter for Optimizations
+8 - Go to *After First Time Use* below
 
 
 
@@ -160,10 +178,10 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
 
 
 READ: This game is running on my HOME SERVER. For saving power (and money) the server is not always on...
-      Because of that every time you want play you have to initialize it. When no more players are playing
+      Because of that every time you want to play you have to initialize it. When no more players are playing
       the server will shut down automatically.
 
-IMP:  You need to do these 4 steps EVERY TIME you wanna play.
+IMP:  You need to do these 4 steps EVERY TIME you want to play.
 
 
 ############################################################################################
@@ -172,34 +190,39 @@ IMP:  You need to do these 4 steps EVERY TIME you wanna play.
 ##										          ##
 ## 2 - Start your game									  ##
 ##											  ##
-## 3 - Join multiplayer as before (it may take about 2 min for the whole thing to start). ##
-##											  ##
+## 3 - Join multiplayer by clicking the server 						  ##
+##     --> it may take about 2 min for the whole thing to start) 			  ##
+##										 	  ##
 ## 4 - ENJOY THE SERVER! NO RULES, GO CRAZY!						  ##
 ##											  ##
 ############################################################################################
 
-
-OPTIONAL, You can do both, only needs to be done ONCE
-
-
-5 - If your Pc can handle better GRAPHICS go to chapter Better Graphics
-    It Includes:
-
-        - Resource packs (looks  better)
+NOTE: If you don't have windows to initialize server go to:
+https://github.com/Mafiosi/Minecraft_Server_Management/issues/1
 
 
-6 - If your Pc is lagging try the guide on Better FPS
+OPTIONAL:   --> only needs to be done ONCE
+
+
+5 - If your Pc can handle better GRAPHICS go to *Better Graphics* below
+   Includes:
+
+        - Custom resource packs (looks better)
+
+
+6 - If your Pc is lagging go to *Better Performance* below
 
 
 ########################################
 ######  EXECUTABLES DESCRIPTION   ######
 ########################################
 
+
 DESCRIPTION OF FOLDER 3 - EXECUTABLES:
 
 Start_MManager_vanilla  - Initializes Server Remotely
 
-Transfer_ALL            - Transfer the whole First Use Pack
+Transfer_ALL_VANILLA    - Transfer the whole First Use Pack
 
 Transfer_TEXTURES_ONLY  - Transfer only Textures only
 
@@ -208,14 +231,18 @@ Transfer_TEXTURES_ONLY  - Transfer only Textures only
 #######     BETTER GRAPHICS      #######
 ########################################
 
+
 1 - Go to folder 3 - EXECUTABLES and run Transfer_TEXTURE_ONY.exe
     The Program will exit when Done, DO NOT CLOSE IT BEFORE.
+
 
 2 - Open you Minecraft folder and copy the folder resourcepacks inside
 
     (IT IS POSSIBLE TO USE ANY RESOURCE PACK OF YOUR LIKING, IT ONLY AFFECTS THE PLAYER NOT THE SERVER)
 
+
 3 - Launch Game
+
 
 4 - Go to Options
   - Resource Packs
@@ -223,6 +250,7 @@ Transfer_TEXTURES_ONLY  - Transfer only Textures only
   - Done
 
   NOTE: It may take a while to do this, don't panic if it seems the game crashed, be patient
+
 
 5 - Go to Options
   - Video Settings
@@ -233,29 +261,33 @@ Transfer_TEXTURES_ONLY  - Transfer only Textures only
     - Other... / Fullscreen ON
     - Graphics: Fancy
 
+
 ## MINOR GRAPHIC IMPROVEMENTS - Do only if your pc can handle it
 
-5 - Go to Options / Video Settings 
+6 - Go to Options
+  - Video Settings
     - Dynamic Lights: ON
     - Smooth Lightning Level: 100%
 
-6 - Other Settings try at your own risk. 
+
+7 - Other Settings try at your own risk.
 
 
 ########################################
 ######    BETTER PERFORMANCE     #######
 ########################################
-�
+
+
 1 - Go to Nvidia Control Panel (usually on Control Panel or the little icon on the windows bar)
-    Click Manage 3D Settings
+  - Click Manage 3D Settings
     - Click Program Settings
     - Click Add
     - Click Browse
-        - Go to C:/Program Files/ Java / jre1.8.0_181 / bin / javaw
+        - Go to C:/Program Files/Java/jre1.8.0_181/bin/javaw
         - Select High-performance NVIDIA processor
         - Click Apply
 
-    - Repeat the same process for C:/Program Files/ Java / jre1.8.0_181 / bin / java
+    - Repeat the same process for C:/Program Files/Java/jre1.8.0_181/bin/java
 
     ONLY If you installed Minecraft OFICIAL:
     - Repeat the same process for C:/Program Files(x86)/Minecraft/runtime/jre-x64/any_number/bin/javaw
@@ -263,10 +295,12 @@ Transfer_TEXTURES_ONLY  - Transfer only Textures only
 
 NOTE: To check if you're running with Nvidia start the game and press F3. If you see NVIDIA on the left you are, otherwise... Nope.
 
+
 2 - Nvidia Geforce Experience can help you optimize the Game
     - Open Nvidia Geforce Experience
     - Go to games folder
     - Optimize minecraft
+
 
 IN MINECRAFT:
 3 - Go to Options
@@ -277,12 +311,14 @@ IN MINECRAFT:
 	- Dynamic Lightning: OFF
 	- VBO's: ON
 
+
 4 - Go to Options
   - Video Settings
   - Performance
 	- Smooth FPS: ON
 	- Fast Math: ON
 	- Smooth World: ON
+
 
 5 - Go to Options
   - Video Settings
@@ -291,6 +327,8 @@ IN MINECRAFT:
 	- Antialising: OFF
 	- Anisotropic FIltering: OFF
 
+
 6 - Update Graphic Drivers
+
 
 7 - Get away from highly populated areas (or machines)
