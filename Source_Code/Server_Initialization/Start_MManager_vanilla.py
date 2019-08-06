@@ -13,8 +13,12 @@ import paramiko.ssh_exception
 def starting_module(c_q):
 
     print("###########################################")
-    print("##          TRANSFER ALL - V3.0          ##")
-    print("##         VANILLA SERVER - 1.14.4       ##")
+    print("##   MINECRAFT SERVER 1.14.4 - VANILLA   ##")
+    print("###########################################")
+
+    print()
+    print("###########################################")
+    print("##     START MINECRAFT MANAGER - V3.0    ##")
     print("##           AUTHOR - MAFIOSI            ##")
     print("###########################################")
     print()
@@ -50,7 +54,7 @@ def starting_module(c_q):
 
     # CONNECTION VARIABLES
     server = Connection(host=gamma, user=alpha, port=22, connect_kwargs={"password": beta})
-    command = 'nohup screen -S mine -d -m python3 Internal_MManager.py &'
+    command = 'nohup screen -S mine -d -m python3 Internal_MManager_vanilla.py &'
 
     # TIME PC TAKES TO TURN ON
     zzz = 50
@@ -119,46 +123,29 @@ def starting_module(c_q):
             print("[RESULT] Server is Turned ON")
             print()
 
-        # TRY TO TRANSFER FILES TO PC
-        print("[STATE] Initializing File Transfer")
-        print("[SPECIFICATIONS] Folder: ALL_VANILLA.zip   Size: 327 MB   ETA: 2-5 min")
-        print("[CONTENTS]   1 - JAVA")
-        print("             2 - MINECRAFT 1.14.4")
-        print("             3 - EXECUTABLES")
-        print("             INSTRUCTIONS_Vanilla.txt")
-        print()
-
-        answer = None
-        i = 0
-        while answer not in ("y", "n"):
-            answer = input(" DO YOU WANT TO PROCEED?  y/n \n ANSWER: ")
-            if answer == "y" or answer == "yes":
-                try:
-                    print()
-                    print("[STATE] Transferring Files to this Executable's Folder")
-                    print("[WARNING] DO NOT CLOSE THE WINDOW! It will close automatically when done")
-                    server.get('/opt/Transfer/Vanilla/Distribution/ALL_VANILLA.zip', None, True)
-                    print("[RESULT] Files Were Transferred Successfully!")
-                    print()
-                    c_q.put(1)
-                    break
-                except:
-                    print("[RESULT] Couldn't Transfer Files TO PC, Check Internet Connection or try again later")
-                    c_q.put(6)
-                    break
-            elif answer == "n" or answer == "no":
-                print("[RESULT] Exiting Program")
+        #CHECK IF SERVER IS ALREADY ON
+        print('[STATE] Checking Active Session...')
+        try:
+            a = server.run('pgrep -f minecraft')
+            if a is not None:
                 c_q.put(1)
+                print("[RESULT] Session is already active")
+                print()
                 break
-            else:
-                i = i + 1
-                if i == 3:
-                    print()
-                    print("[RESULT] Alright ya douche I'm closing the program")
-                    c_q.put(1)
-                    break
-                print("\n[RESULT] That answer is not y(es) or n(o), care to change...")
-                answer = None
+        except Exception as err:
+            error = err
+
+
+        # TURN SERVER ON
+        try:
+            with server.cd('/opt/scripts/'):
+                server.run(command)
+            print('[RESULT] Session Initializing --> Turning ON.  ETA: ~60s')
+            print()
+            c_q.put(1)
+        except:
+            print("[RESULT] Minecraft Session Failed to Initialize")
+            c_q.put(6)
 
         return
 

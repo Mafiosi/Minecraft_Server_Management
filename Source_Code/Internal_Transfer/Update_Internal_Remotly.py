@@ -13,19 +13,18 @@ import paramiko.ssh_exception
 def starting_module(c_q):
 
     print("###########################################")
-    print("##          TRANSFER ALL - V3.0          ##")
-    print("##         VANILLA SERVER - 1.14.4       ##")
+    print("##         UPDATE INTERNAL - V3.0        ##")
     print("##           AUTHOR - MAFIOSI            ##")
     print("###########################################")
-    print()
+    print("\n \n")
     print("[WARNING] DO NOT CLOSE THE PROGRAM WHILE IT'S RUNNING")
     time.sleep(2)
-    print()
+    print("\n \n")
     print("[STATE] Checking file configs.pyc availability....")
     try:
         s = open('configs.pyc', 'rb')
         print("[RESULT] File configs.pyc found")
-        print()
+        print("\n")
     except:
         print("[RESULT] Move file configs.pyc to the same folder as this EXECUTABLE")
         c_q.put(2)
@@ -37,19 +36,19 @@ def starting_module(c_q):
     garden = types.ModuleType("Garden")
     exec(olives,garden.__dict__)
 
-    alpha = base64.decodebytes(bytes(garden.pick(1)))
-    beta = base64.decodebytes(bytes(garden.pick(2)))
-    gamma = base64.decodebytes(bytes(garden.pick(3)))
-    delta = base64.decodebytes(bytes(garden.pick(4)))
+    u = base64.decodebytes(bytes(garden.pick(1)))
+    p = base64.decodebytes(bytes(garden.pick(2)))
+    d = base64.decodebytes(bytes(garden.pick(3)))
+    m = base64.decodebytes(bytes(garden.pick(4)))
     x = 9
 
-    alpha = alpha.decode()
-    beta = beta.decode()
-    gamma = gamma.decode()
-    delta = delta.decode()
+    u = u.decode()
+    p = p.decode()
+    d = d.decode()
+    m = m.decode()
 
     # CONNECTION VARIABLES
-    server = Connection(host=gamma, user=alpha, port=22, connect_kwargs={"password": beta})
+    server = Connection(host=d, user=u, port=22, connect_kwargs={"password": p})
     command = 'nohup screen -S mine -d -m python3 Internal_MManager.py &'
 
     # TIME PC TAKES TO TURN ON
@@ -64,10 +63,10 @@ def starting_module(c_q):
         print('[STATE] Looking up server info...')
         try:
             time.sleep(1)
-            i = socket.gethostbyname(gamma)
+            i = socket.gethostbyname(d)
             time.sleep(1)
             print('[RESULT] Server OK')
-            print()
+            print('\n')
         except (Exception, ConnectionResetError, socket.timeout, paramiko.ssh_exception.SSHException) as err:
             print("[RESULT] Server info could not be retrieved, try again later")
             c_q.put(3)
@@ -77,7 +76,7 @@ def starting_module(c_q):
         # TELLS PC TO TURN ON
         print('[STATE] Checking if Server is ON...')
         try:
-            send_magic_packet(delta, ip_address=i, port=x)
+            send_magic_packet(m, ip_address=i, port=x)
         except (Exception, ConnectionResetError, socket.timeout, paramiko.ssh_exception.SSHException) as err:
             error = err
             print("[RESULT] Server cannot be turned ON, try again later")
@@ -103,7 +102,7 @@ def starting_module(c_q):
                 verify = server.is_connected
                 if verify:
                     print("[RESULT] Server is turned ON")
-                    print()
+                    print('\n')
                 else:
                     print("[RESULT] Server cannot be turned ON, try again later")
                     c_q.put(5)
@@ -117,48 +116,22 @@ def starting_module(c_q):
 
         else:
             print("[RESULT] Server is Turned ON")
-            print()
+            print('\n')
 
         # TRY TO TRANSFER FILES TO PC
-        print("[STATE] Initializing File Transfer")
-        print("[SPECIFICATIONS] Folder: ALL_VANILLA.zip   Size: 327 MB   ETA: 2-5 min")
-        print("[CONTENTS]   1 - JAVA")
-        print("             2 - MINECRAFT 1.14.4")
-        print("             3 - EXECUTABLES")
-        print("             INSTRUCTIONS_Vanilla.txt")
-        print()
-
-        answer = None
-        i = 0
-        while answer not in ("y", "n"):
-            answer = input(" DO YOU WANT TO PROCEED?  y/n \n ANSWER: ")
-            if answer == "y" or answer == "yes":
-                try:
-                    print()
-                    print("[STATE] Transferring Files to this Executable's Folder")
-                    print("[WARNING] DO NOT CLOSE THE WINDOW! It will close automatically when done")
-                    server.get('/opt/Transfer/Vanilla/Distribution/ALL_VANILLA.zip', None, True)
-                    print("[RESULT] Files Were Transferred Successfully!")
-                    print()
-                    c_q.put(1)
-                    break
-                except:
-                    print("[RESULT] Couldn't Transfer Files TO PC, Check Internet Connection or try again later")
-                    c_q.put(6)
-                    break
-            elif answer == "n" or answer == "no":
-                print("[RESULT] Exiting Program")
-                c_q.put(1)
-                break
-            else:
-                i = i + 1
-                if i == 3:
-                    print()
-                    print("[RESULT] Alright ya douche I'm closing the program")
-                    c_q.put(1)
-                    break
-                print("\n[RESULT] That answer is not y(es) or n(o), care to change...")
-                answer = None
+        # MODDED - server.put('D:\Projects\Minecraft_Server_Management\Source_Code\Internal_Manager\Internal_MManager.py', '/opt/scripts')
+        # VANILLA - server.put('D:\Projects\Minecraft_Server_Management\Source_Code\Internal_Manager\Internal_MManager_vanilla.py', '/opt/scripts')
+        print("[STATE] Transferring Files")
+        try:
+            server.put('D:\Projects\Minecraft_Server_Management\Source_Code\Internal_Manager\Internal_MManager.py', '/opt/scripts')
+            print("[RESULT] Files Transferred Sucessfully")
+            print('\n')
+            c_q.put(1)
+            break
+        except:
+            print("[RESULT] Files could not be transferred")
+            c_q.put(6)
+            break
 
         return
 
@@ -179,7 +152,7 @@ def main():
     while True:
         state = close_queue.get()
         if state == 1:
-            print('[RESULT] IT EXECUTED SUCCESSFULLY - THE PROGRAM WILL CLOSE AUTOMATICALLY')
+            print('[RESULT] IT EXECUTED SUCCESSFULLY - YOU MAY CLOSE THE PROGRAM')
             time.sleep(8)
             return
         else:
