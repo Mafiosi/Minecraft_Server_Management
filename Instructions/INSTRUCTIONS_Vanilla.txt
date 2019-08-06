@@ -74,7 +74,7 @@ YOU ONLY NEED TO DO THESE STEPS THE FIRST TIME YOU RUN THE GAME
     The Program will exit when Done, DO NOT CLOSE IT BEFORE.
 
     If you do have have a Windows Operating System go to:
-    https://github.com/Mafiosi/Minecraft_Server_Management/Zip_File_Distribution/Vanilla/Distribution
+    https://github.com/Mafiosi/Minecraft_Server_Management/tree/master/Zip_File_Distribution/Vanilla/Distribution
     and Download the ALL_VANILLA.zip File
 
 
@@ -245,7 +245,7 @@ Transfer_TEXTURES_ONLY  - Transfer only Textures only
 ########################################
 ######    BETTER PERFORMANCE     #######
 ########################################
-´
+ï¿½
 1 - Go to Nvidia Control Panel (usually on Control Panel or the little icon on the windows bar)
     Click Manage 3D Settings
     - Click Program Settings
