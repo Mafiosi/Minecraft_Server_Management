@@ -16,15 +16,15 @@ def starting_module(c_q):
     print("##           RESET WORLD - V3.0          ##")
     print("##           AUTHOR - MAFIOSI            ##")
     print("###########################################")
-    print("\n \n")
+    print()
     print("[WARNING] DO NOT CLOSE THE PROGRAM WHILE IT'S RUNNING")
     time.sleep(2)
-    print("\n \n")
+    print()
     print("[STATE] Checking file configs.pyc availability....")
     try:
         s = open('configs.pyc', 'rb')
         print("[RESULT] File configs.pyc found")
-        print("\n")
+        print()
     except:
         print("[RESULT] Move file configs.pyc to the same folder as this EXECUTABLE")
         c_q.put(2)
@@ -36,19 +36,19 @@ def starting_module(c_q):
     garden = types.ModuleType("Garden")
     exec(olives,garden.__dict__)
 
-    u = base64.decodebytes(bytes(garden.pick(1)))
-    p = base64.decodebytes(bytes(garden.pick(2)))
-    d = base64.decodebytes(bytes(garden.pick(3)))
-    m = base64.decodebytes(bytes(garden.pick(4)))
+    alpha = base64.decodebytes(bytes(garden.pick(1)))
+    beta = base64.decodebytes(bytes(garden.pick(2)))
+    gamma = base64.decodebytes(bytes(garden.pick(3)))
+    delta = base64.decodebytes(bytes(garden.pick(4)))
     x = 9
 
-    u = u.decode()
-    p = p.decode()
-    d = d.decode()
-    m = m.decode()
+    alpha = alpha.decode()
+    beta = beta.decode()
+    gamma = gamma.decode()
+    delta = delta.decode()
 
     # CONNECTION VARIABLES
-    server = Connection(host=d, user=u, port=22, connect_kwargs={"password": p})
+    server = Connection(host=gamma, user=alpha, port=22, connect_kwargs={"password": beta})
     command = 'nohup screen -S mine -d -m python3 Internal_MManager.py &'
 
     # TIME PC TAKES TO TURN ON
@@ -63,7 +63,7 @@ def starting_module(c_q):
         print('[STATE] Looking up server info...')
         try:
             time.sleep(1)
-            i = socket.gethostbyname(d)
+            i = socket.gethostbyname(gamma)
             time.sleep(1)
             print('[RESULT] Server OK')
             print('\n')
@@ -76,7 +76,7 @@ def starting_module(c_q):
         # TELLS PC TO TURN ON
         print('[STATE] Checking if Server is ON...')
         try:
-            send_magic_packet(m, ip_address=i, port=x)
+            send_magic_packet(delta, ip_address=i, port=x)
         except (Exception, ConnectionResetError, socket.timeout, paramiko.ssh_exception.SSHException) as err:
             error = err
             print("[RESULT] Server cannot be turned ON, try again later")
