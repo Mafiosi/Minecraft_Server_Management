@@ -44,6 +44,7 @@ This Server in its current state is capable of:
 
 -   Automatic Player Updates
 -   Online Server Management 
+-   Discord Implementation
 
 
 ## FAQ
