@@ -5,14 +5,15 @@ A Personal Minecraft Management Server for community and personal use.
 
 ## Description
 
-Currently there two Operational Version of this Minecraft Server:
+Currently there two operational versions of this Minecraft Server:
 
--   Minecraft 1.14.4 Vanilla
--   Minecraft 1.12.2 Modded
+-   Minecraft 1.14.4 Vanilla - Aimed for Stability and Long time development
+-   Minecraft 1.12.2 Modded  - Aimed for Mod Testing
 
-These versions have different objectives regarding stability and long time use.
-For more information read the file(s) inside the Instructions directory for the specific server.
-A List of current mods is presented in Instructions\Instruction_Modded.txt
+
+For more information read the file(s) inside the Instructions directory for each specific server.
+A list of current mods is presented in Instructions\Instruction_Modded.txt
+
 
 ## Repository Contents 
 
@@ -24,8 +25,8 @@ Within this repository there are several packages for different uses:
     -   Config Files - Server Access Management
     -   Internal Manager - Internal Server Structure
     -   Internal Transfer - Automated Internal File Update
-    -   Server Initialization - Distribution package for server initialization
-    -   User Transfer - User Data for External Server setup
+    -   Server Initialization - Distribution package for Server Initialization
+    -   User Transfer - User Data for External Server Setup
 
 - Zip File Distribution - Backup Data for Internal and External Use
 
@@ -53,10 +54,9 @@ This Server in its current state is capable of:
 
 If you want to join the server and play minecraft be my guest:
 
-Download the file Server_Minecraft.zip under Zip_File_Distribution and start there
+Download the file Server_Minecraft.zip under Zip_File_Distribution and start there.
 
 However, the server is not powerful enough to support more than 10 players at the same time. 
-
 
 ### Need Help with some Configuration or Something is wrong
 
@@ -72,5 +72,6 @@ If you can't find information there leave an issue using the following format:
 \[MINECRAFT VERSION\]:   (If Relevant)<br/>
 \[ADDITIONAL INFO\]:           (Optional)<br/>
 
-### Author
+
+## Author
 **Mafiosi** 
