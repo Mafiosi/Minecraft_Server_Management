@@ -53,7 +53,7 @@ Think you can do everything faster and better!?!
 
 
 Nice! Leave an issue in the following repository:
-https://github.com/Mafiosi/Minecraft_Server_Management
+https://github.com/Mafiosi/Minecraft_Server_Management/issues
 
 
 Issue Format:
