@@ -133,7 +133,7 @@ def Server_Write(m_q,r_q,w_q,server):
 
 
 #INITITALIZATION OF SERVER
-server = Popen("cd /opt/minecraft_vanilla/; java -Xms1G -Xmx5G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /opt/minecraft_vanilla/server.jar nogui", shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
+server = Popen("java -Xms1G -Xmx5G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -jar /opt/minecraft_vanilla/server.jar nogui", shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 
 #INDICATES THAT'S SOMETHING IS GONNA BE WRITTEN
 global flag
@@ -153,7 +153,7 @@ shut = False
 
 #BACKUP DIRECTORY
 origin = "/opt/minecraft_vanilla/world"
-destination = "/opt/Backups/Server_World_vanilla"
+destination = "/opt/Backups/Server_World_Vanilla"
 
 #tHREAD INITIALIZATION
 thread_read = threading.Thread(name='Read_Server',target=Server_Read,args=(read_Queue,write_Queue,server,))

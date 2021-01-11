@@ -246,18 +246,18 @@ READ: This game is running on my HOME SERVER. For saving power (and money) the s
 IMP:  You need to do these 4 steps EVERY TIME you want to play.
 
 
-############################################################################################
-##										          ##                                                                                       ##
-## 1 - To start the server run Start_MManager_Modded.exe				  ##
-##										          ##
-## 2 - Start your game									  ##
-##											  ##
-## 3 - Join multiplayer by clicking the server 						  ##
-##     --> it may take about 5 min for the whole thing to start) 			  ##
-##											  ##
-## 4 - ENJOY THE SERVER! NO RULES, GO CRAZY!						  ##
-##											  ##
-############################################################################################
+##############################################################################################
+##										                                                    ##                                                                                       ##
+## 1 - To start the server run Start_MManager_Modded.exe				                    ##
+##										                                                    ##
+## 2 - Start your game									                                    ##
+##											                                                ##
+## 3 - Join multiplayer by clicking the server 						                        ##
+##     --> it may take about 5 min for the whole thing to start) 			                ##
+##											                                                ##
+## 4 - ENJOY THE SERVER! NO RULES, GO CRAZY!						                        ##
+##											                                                ##
+##############################################################################################
 
 NOTE: If you don't have windows to initialize server go to:
 https://github.com/Mafiosi/Minecraft_Server_Management/issues/1
@@ -443,57 +443,113 @@ Issue Format:
 
 ########################################
 
-
 For the Modded Version the list is as follows:
 *Update Available
 
+##########################
 ## SERVER ONLY MODS
 
-- AI Improvements 		- 0.0.1b3
-- Better PvP			- 1.17.5
+- Color Chat            - 2.0.43
+- Fast Leaf Decay       - v14
+- K4LIB                 - 2.1.81
+- Morpheus              - 3.5.106
 
-
+##########################
 ## CLIENT ONLY MODS
 
-- Better Folliage		- 2.2.0
-- Connected Textures Mods	- 0.3.3.22
-- Dinamic Surroudings		- 3.5.4.3
-- Optifine			- HD_U_E3
-- Ore Lib			- 3.5.2.2
-- Xaeros Minimap		- 1.17.5
-- Xaeros World Map		- 1.14.7
+- Ambient Sounds            - 3.0.18
+- Connected Textures Mods	- 1.0.2.31
+- CreativeCore              - 1.10.40
+- Optifine                  - HD_U_F5
 
+# OPTIONAL
+- Better Folliage		    - 2.3.1
+- Dinamic Surroudings	    - 3.6.2.1
+- OreLib                    - 3.6.0.1
 
+##########################
 ## SERVER AND CLIENTS MODS
 
-- Additional Pipes 		- 6.0.0 alpha8
-- Applied Energistics 2 	- rv6-stable7
-- BC Ore Processing		- 7.99.15.1
-- Better Fps			- 1.4.8
-- Biomes O'Plenty		- 7.0.12429
-- Buildcraft			- 7.99.24.1
-- CodeChicken			- 3.2.3.357
-- CoFH Core			- 4.6.3.27
-- ComputerCraft			- 1.80pr1
-- Drugs & Pills			- 2.0.1
-- Davinci Vessels		- 6.340
-- Dinamic Trees			- 0.9.5
-- Dinamic Trees - BOP		- 1.4.1e
-- Ender Storage			- 2.4.6.137
-- Foam Fix			- 0.10.5
-- Forestry			- 5.8.2.394
-- Forgelin			- 1.8.3
-- Galacticraft Core		- 4.0.2.224
-- Galacticraft Planets		- 4.0.2.224
-- Hwyla				- 1.8.26-B41
+- AI Improvments            - 1.12
+- Additional Pipes 		    - 6.0.0.8
+- Apple Skin                - 1.0.14
+- Applied Energistics 2     - rv6-stable7
+- AutoRegLib                - 1.3.32
+- BC Ore Processing		    - 7.99.24.4-1
+- Better Fps			    - 1.4.8
+- Biomes O'Plenty		    - 7.0.12444
+- Buildcraft			    - 7.99.24.7
+- Chicken Chunk             - 2.4.2.74
+- Chisel                    - 1.0.2.45
+- CodeChicken			    - 3.2.3.358
+- CoFH Core			        - 4.6.6.1
+- CoFH World		        - 1.4.0.1
+- Drugs & Pills			    - 2.0.3
+- Drugs and Psychadelics    - 1.1.0
+- Davinci Vessels		    - 6.340
+- Death Counter             - 1.1.0
+- Dynamic Trees			    - 0.9.21
+- Dynamic Trees - BOP		- 1.4.4
+- Dynamic Trees - Quark     - 1.0.6
+- Dynamic Trees - TheAether - 1.0.12
+- Dynamic Trees - Forestry  - 1.0.9
+- Dynamic Trees - IC2       - 1.2.1
+- Dynamic Trees - Natura    - 1.1.6
+- Dynamic Trees - PHarvestC.- 2.0.5
+- Dynamic Trees - TContruct - 1.2.6
+- Dynamic Trees - Twilight  - 1.2.2
+- Ender Storage			    - 2.4.6.137
+- Energy Converters         - 1.3.7.30
+- Extra Planets             - 2.0.7
+- Foam Fix			        - 0.10.11
+- Forestry			        - 5.8.2.422
+- Forgelin			        - 1.8.4
+- Galacticraft Core		    - 4.0.2.281
+- Galacticraft Planets		- 4.0.2.281
+- Hats                      - 7.1.1
+- Hwyla				        - 1.8.26-B41
+- IChun Util                - 7.2.2
 - Industrial Craft 2		- 2.8.177ex112
-- Just Enough Items		- 4.15.0.287
-- Mantle			- 1.3.3.55
-- Micdoodle Core		- 4.0.2.224
-- Millenaire			- 7.2.1
-- Moving World			- 6.342
-- Natura			- 4.3.2.69
-- Not Enough Items		- 2.4.3.245
-- Redstone Flux			- 2.1.0.6
-- Tinkers Construct		- 2.12.0.157
-- Twilight Forest		- 3.8.689
+- Iron Chests               - 7.0.72.847
+- Inventory Tweaks           - 1.63
+- JAOPCA                    - 2.2.8.103
+- JEI (Just Enough Items)   - 4.16.1.301
+- JEI - AE2                 - 1.0.8
+- JEI - Banners             - 1.2.1
+- JEI - Bees                - 0.9.0.5
+- JEI - Block Drops         - 1.4.0
+- JEI - Millenaire          - 1.0.0
+- JEI - PamHarvestcraft     - 1.7.2
+- JEI - TConstruct          - 1.2
+- JEI - Villagers           - 1.0.2
+- JER                       - 0.9.2.60
+- Logistic Pipes            - 0.10.3.73
+- Long Fall Boots           - 1.2.1b
+- Mantle			        - 1.3.3.55
+- Micdoodle Core		    - 4.0.2.281
+- Millenaire			    - 8.1.0
+- MineTogether              - 2.4.1
+- MJr Legends Lib           - 1.2.0
+- More Planets              - 2.2.0
+- Moving World			    - 6.353
+- Natura			        - 4.3.2.69
+- Nether Ending Ores        - 1.4.2
+- Nether Portal Fix         - 1.5.3.17
+- Not Enough Items		    - 2.4.3.245
+- OpenComputers             - 1.7.5.192
+- Pam HarvestCraft          - 2zg
+- Quark                     - 1.6-179
+- Random Patches            - 1.22.1.10
+- Redstone Flux			    - 2.1.1.1
+- Sound Muffler             - 1.0.2.10
+- Steve Gunk                - 1.1.9
+- The Aether                - 1.5.3.1
+- Tinkers Construct		    - 2.13.0.183
+- TorchMaster               - 1.8.4.84
+- Twilight Forest		    - 3.11.1021
+- UniDict                   - 3.0.4
+- Unloader                  - 1.2.0
+- Xaeros Minimap            - 20.30.1
+- Xaeros Worldmap           - 1.11.6
+- Wannion Lib               - 2.5
+- Wrap Up                   - 1.1.3
